@@ -4,7 +4,9 @@ import random as rand
 cardsGem= []
 cardsRelic = []
 cardsSpell = []
+mages  = []
 
+#takes in the csv and makes arrays of all the cards
 def processCards(fileName = "cards.csv"):
     with open(fileName) as csvfile:
         reader = csv.DictReader(csvfile)
@@ -28,18 +30,16 @@ def processCards(fileName = "cards.csv"):
                 cardsGem.append(Card(name, cardType, cost, text, expansion))
     return
 
-##def pickSetup():
-##    gems = rand.sample(cardsGem, 3)
-##    for x in gems:
-##        print (x)
-##
-##    spells = rand.sample(cardsSpell, 4)
-##    for x in spells:
-##        print (x)
-##
-##    relics = rand.sample(cardsRelic, 2)
-##    for x in relics:
-##        print (x)
+#takes in the csv and makes arrays of all the mages
+def processMages(fileName = "mages.csv"):
+    with open(fileName) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            name = row['Name']
+            ability = row['Ability Description']
+            expansion = row['Product (base, stretch, exp)']
+            mages.append(Mage(name, ability, expansion))
+    return
 
 #function to pick a specified number of each type of card
 def pickSetup(gemNum=3, speNum=2, relNum=4):
@@ -55,19 +55,31 @@ def pickSetup(gemNum=3, speNum=2, relNum=4):
     for x in relics:
         print (x)
 
-#function to pick a specified number of each type of card
-def pickSetup(gemNum=3, speNum=2, relNum=4):
-    gems = rand.sample(cardsGem, gemNum)
+#function to pick a specified number of mages
+def pickMages(exps=["Base, Expansion, Stretch"], players = 4):
+    picks = rand.sample(mages, players)
+    for x in picks:
+        print (x)
+
+
+
+#function to pick a specified number of each type
+#from a specified set of expansions
+def pickSetupFilter(exps=["Base, Expansion, Stretch"], gemNum=3, speNum=2, relNum=4):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    gems = rand.sample(fGems, gemNum)
     for x in gems:
         print (x)
-
-    spells = rand.sample(cardsSpell, speNum)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    spells = rand.sample(fSpells, speNum)
     for x in spells:
         print (x)
-
-    relics = rand.sample(cardsRelic, relNum)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    relics = rand.sample(fRelics, relNum)
     for x in relics:
         print (x)
+
+
 
 #function to check if a specified mage or card is in an array of expansions
 def checkExp(card, exp):
@@ -79,6 +91,10 @@ class Mage(object):
         self.name = name
         self.ability = ability
         self.expansion = expansion    
+
+    def __str__(self):
+        return self.name + " " + self.expansion
+
 
 class Card(object):
 
@@ -93,7 +109,7 @@ class Card(object):
         return self.name + " " + self.cardType + " " + str(self.cost) + " " + self.expansion
 
 
-
-
 processCards()
+processMages()
 pickSetup()
+pickMages()
