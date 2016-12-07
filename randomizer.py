@@ -1,7 +1,7 @@
 import csv
 import random as rand
 
-cardsGem= []
+cardsGem = []
 cardsRelic = []
 cardsSpell = []
 mages  = []
@@ -79,11 +79,18 @@ def pickSetupFilter(exps=["Base, Expansion, Stretch"], gemNum=3, speNum=2, relNu
     for x in relics:
         print (x)
 
-
-
 #function to check if a specified mage or card is in an array of expansions
 def checkExp(card, exp):
     return card.expansion in exp
+
+#checks cost
+def checkCost(card, cost, op):
+    if op == "less":
+        return card.cost < cost
+    if op == "equal":
+        return card.cost == cost
+    if op == "greater":
+        return card.cost > cost
     
 
 class Mage(object):
