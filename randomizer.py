@@ -97,15 +97,15 @@ def setupOne(exps):
     fGems.remove(fourGem)
     gem = rand.choice(fGems)
     print (gem)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    relics = rand.sample(fRelics, 2)
+    for x in relics:
+        print (x)
     fSpells = [x for x in cardsSpell if checkExp(x, exps)]
     smallSpells = [x for x in fSpells if x.cost < 5]
     bigSpells = [x for x in fSpells if x.cost > 5]
     spells = rand.sample(smallSpells, 2)+ rand.sample(bigSpells, 2)
     for x in spells:
-        print (x)
-    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
-    relics = rand.sample(fRelics, 2)
-    for x in relics:
         print (x)
 
 def setupTwo(exps):
@@ -114,12 +114,6 @@ def setupTwo(exps):
     gems = rand.sample(largeGems, 3)
     for x in gems:
         print (x)
-    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
-    smallSpells = [x for x in fSpells if x.cost < 6]
-    bigSpells = [x for x in fSpells if x.cost > 6]
-    spells = rand.sample(smallSpells, 3)+ rand.sample(bigSpells, 1)
-    for x in spells:
-        print (x)
     fRelics = [x for x in cardsRelic if checkExp(x, exps)]
     largeRelics = [x for x in fRelics if x.cost > 4]
     largeRelic = rand.choice(largeRelics)
@@ -127,14 +121,23 @@ def setupTwo(exps):
     fRelics.remove(largeRelic)
     relic = rand.choice(fRelics)
     print (relic)    
-
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    smallSpells = [x for x in fSpells if x.cost < 6]
+    bigSpells = [x for x in fSpells if x.cost > 6]
+    spells = rand.sample(smallSpells, 3)+ rand.sample(bigSpells, 1)
+    for x in spells:
+        print (x)
+    
 def setupThree(exps):
     fGems = [x for x in cardsGem if checkExp(x, exps)]
     largeGems = [x for x in fGems if x.cost == 4 or x.cost == 5]
     smallGems = [x for x in fGems if x.cost < 4]
-    gems = rand.sample(largeGems, 2)+rand.sample(smallGems, 1)
+    gems = rand.sample(smallGems, 1)+rand.sample(largeGems, 2)
     for x in gems:
         print (x)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    relic = rand.choice(fRelics)
+    print (relic)
     fSpells = [x for x in cardsSpell if checkExp(x, exps)]
     threeSpells = [x for x in fSpells if x.cost == 3]
     fourSpells = [x for x in fSpells if x.cost == 4]
@@ -142,11 +145,73 @@ def setupThree(exps):
     spells = rand.sample(threeSpells, 1)+ rand.sample(fourSpells, 1)+rand.sample(bigSpells, 3)
     for x in spells:
         print (x)
+    
+def setupFour(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    largeGems = [x for x in fGems if x.cost > 4]
+    gem = rand.choice(largeGems)
+    fGems.remove(gem)
+    print (gem)
+    gems = rand.sample(fGems, 2)
+    for x in gems:
+        print (x)
     fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    smallRelics = [x for x in fRelics if x.cost <4]
+    bigRelics = [x for x in fRelics if x.cost > 4]
+    smallRelic = rand.choice(smallRelics)
+    print(smallRelic)
+    fRelics.remove(smallRelic)
+    bigRelic = rand.choice(bigRelics)
+    print(bigRelic)
+    fRelics.remove(bigRelic)
     relic = rand.choice(fRelics)
-    print (relic)    
+    print(relic)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    smallSpells = [x for x in fSpells if x.cost < 5]
+    bigSpells = [x for x in fSpells if x.cost > 5]
+    smallSpell = rand.choice(smallSpells)
+    print(smallSpell)
+    fSpells.remove(smallSpell)
+    bigSpell = rand.choice(bigSpells)
+    print(bigSpell)
+    fSpells.remove(bigSpell)
+    spell = rand.choice(fSpells)
+    print(spell)
 
+def setupFive(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    for c in [2,3,4,5]:
+        print (rand.choice([x for x in fGems if x.cost == c]))
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    print (rand.choice(fRelics))
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    for c in [4,5,6]:
+        print (rand.choice([x for x in fSpells if x.cost == c]))
+    print (rand.choice([x for x in fSpells if x.cost > 6]))
 
+def setupSix(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    for c in [3,4]:
+        print (rand.choice([x for x in fGems if x.cost == c]))
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    smallRelics = [x for x in fRelics if x.cost <4]
+    bigRelics = [x for x in fRelics if x.cost > 4]
+    smallRelic = rand.choice(smallRelics)
+    print(smallRelic)
+    fRelics.remove(smallRelic)
+    bigRelic = rand.choice(bigRelics)
+    print(bigRelic)
+    fRelics.remove(bigRelic)
+    relic = rand.choice(fRelics)
+    print(relic)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    print (rand.choice([x for x in fSpells if (x.cost == 3 or x.cost == 4)]))
+    spells = rand.sample([x for x in fSpells if (x.cost == 5 or x.cost == 6)],2)
+    for x in spells:
+        print (x)
+    print (rand.choice([x for x in fSpells if x.cost > 6]))
+
+                
 class Mage(object):
     def __init__(self, name, ability, expansion):
         self.name = name
