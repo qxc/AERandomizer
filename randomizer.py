@@ -84,7 +84,68 @@ def pickSetupFilter(exps=["Base, Expansion, Stretch"], gemNum=3, speNum=2, relNu
 #function to check if a specified mage or card is in an array of expansions
 def checkExp(card, exp):
     return card.expansion in exp
-    
+
+def setupOne(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    fourGems = [x for x in fGems if x.cost == 4]
+    smallGems = [x for x in fGems if x.cost < 4]
+    smallGem = rand.choice(smallGems)
+    print (smallGem)
+    fGems.remove(smallGem)
+    fourGem = rand.choice(fourGems)
+    print (fourGem)
+    fGems.remove(fourGem)
+    gem = rand.choice(fGems)
+    print (gem)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    smallSpells = [x for x in fSpells if x.cost < 5]
+    bigSpells = [x for x in fSpells if x.cost > 5]
+    spells = rand.sample(smallSpells, 2)+ rand.sample(bigSpells, 2)
+    for x in spells:
+        print (x)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    relics = rand.sample(fRelics, 2)
+    for x in relics:
+        print (x)
+
+def setupTwo(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    largeGems = [x for x in fGems if x.cost > 3]
+    gems = rand.sample(largeGems, 3)
+    for x in gems:
+        print (x)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    smallSpells = [x for x in fSpells if x.cost < 6]
+    bigSpells = [x for x in fSpells if x.cost > 6]
+    spells = rand.sample(smallSpells, 3)+ rand.sample(bigSpells, 1)
+    for x in spells:
+        print (x)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    largeRelics = [x for x in fRelics if x.cost > 4]
+    largeRelic = rand.choice(largeRelics)
+    print (largeRelic)
+    fRelics.remove(largeRelic)
+    relic = rand.choice(fRelics)
+    print (relic)    
+
+def setupThree(exps):
+    fGems = [x for x in cardsGem if checkExp(x, exps)]
+    largeGems = [x for x in fGems if x.cost == 4 or x.cost == 5]
+    smallGems = [x for x in fGems if x.cost < 4]
+    gems = rand.sample(largeGems, 2)+rand.sample(smallGems, 1)
+    for x in gems:
+        print (x)
+    fSpells = [x for x in cardsSpell if checkExp(x, exps)]
+    threeSpells = [x for x in fSpells if x.cost == 3]
+    fourSpells = [x for x in fSpells if x.cost == 4]
+    bigSpells = [x for x in fSpells if x.cost > 5]
+    spells = rand.sample(threeSpells, 1)+ rand.sample(fourSpells, 1)+rand.sample(bigSpells, 3)
+    for x in spells:
+        print (x)
+    fRelics = [x for x in cardsRelic if checkExp(x, exps)]
+    relic = rand.choice(fRelics)
+    print (relic)    
+
 
 class Mage(object):
     def __init__(self, name, ability, expansion):
