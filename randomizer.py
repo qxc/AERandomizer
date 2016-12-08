@@ -22,12 +22,13 @@ def processCards(fileName = "cards.csv"):
                 continue
             if row['Card Status'] == "":
                 continue
+            card = Card(name, cardType, cost, text, expansion)
             if cardType == 'Spell':
-                cardsSpell.append(Card(name, cardType, cost, text, expansion))
+                cardsSpell.append(card)
             if cardType == 'Relic':
-                cardsRelic.append(Card(name, cardType, cost, text, expansion))
+                cardsRelic.append(card)
             if cardType == 'Gem':
-                cardsGem.append(Card(name, cardType, cost, text, expansion))
+                cardsGem.append(card)
     return
 
 #takes in the csv and makes arrays of all the mages
