@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Aeon's End Randomizer</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<img src = "title.jpg" width ="50%">
+
+<p> Which Expansions are you playing with? </p>
+<form>
+  <input type="checkbox" name="expansions" value="Expansion"> Depths <br>
+  <input type="checkbox" name="expansions" value="Stretch"> Nameless <br>
+</form>
+
+
+<p>How would you like to randomize your setup?</p>
+
+<form>
+  <input type="radio" name="setup" value="random">Completely Random<br>
+  <input type="radio" name="setup" value="one">Market Setup 1<br>
+  <input type="radio" name="setup" value="two">Market Setup 2<br>
+  <input type="radio" name="setup" value="three">Market Setup 3<br>
+  <input type="radio" name="setup" value="four">Market Setup 4<br>
+  <input type="radio" name="setup" value="five">Market Setup 5<br>
+  <input type="radio" name="setup" value="six">Market Setup 6<br>
+</form>
+
+<br>
+
+<form>
+<input type="button" onclick="myFunction()" value="Make Market!">
+</form>
+  <label>Your Market: </label>
+  <p><span id="market"></span></p>
+  <p><span id="expo"></span></p>
+
+<script language="JavaScript">
+function myFunction() {
+	var checkExp = document.forms[0];
+	var exps = ["Base"];
+	for (i = 0; i < checkExp.length; i++) {
+        if (checkExp[i].checked) {
+            exps.push(checkExp[i].value);
+        }
+    }
+    var checkSetup = document.forms[1];
+    var txt = "";
+    var i;
+    for (i = 0; i < checkSetup.length; i++) {
+        if (checkSetup[i].checked) {
+            txt = txt + checkSetup[i].value + " ";
+        }
+    }
+    document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
+	document.getElementById("expo").innerHTML = "You want to use expansions: " + exps;
+}
+</script>
+
+
+</body>
+</html>
