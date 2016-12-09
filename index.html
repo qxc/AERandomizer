@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html>
 
+<! http://underscorejs.org/#sample documentation for this library >
+<script src ="Underscore.js" type="text/javascript">
+</script>
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>Aeon's End Randomizer</title>
@@ -10,7 +14,7 @@
 
 <body>
 
-<img src = "title.jpg" width ="50%">
+<img src = "images/title.jpg" width ="50%">
 
 <p> Which Expansions are you playing with? </p>
 <form>
@@ -61,23 +65,49 @@ function myFunction() {
 	document.getElementById("expo").innerHTML = "You want to use expansions: " + exps;
 	
 }
+
 </script>
 
-<!initializing card as an object >
+
+
+
 <script language="JavaScript">
+
 var Card = function(name, cardType, cost, expansion){
 	this.name = name;
 	this.cardType = cardType;
 	this.cost = cost;
 	this.expansion = expansion;
+	
 };
 Card.prototype.toString = function(){
 	return this.name;
-}
+};
 
-cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("Sifter's Pearl", 'Gem', 3, 'Base'),new Card("V'riswood Amber", 'Gem', 3, 'Base'),new Card("Leeching Agate", 'Gem', 3, 'Stretch'),new Card("Diamond Cluster", 'Gem', 4, 'Base'),new Card("Searing Ruby", 'Gem', 4, 'Base'),new Card("Burning Opal", 'Gem', 5, 'Base'),new Card("Banishing Topaz", 'Gem', 5, 'Expansion'),new Card("Clouded Sapphire", 'Gem', 6, 'Base'),]
-cardsSpell = [new Card("Phoenix Flame", 'Spell', 3, 'Base'),new Card("Spectral Echo", 'Spell', 3, 'Base'),new Card("Amplify Vision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("Lava Tendril", 'Spell', 4, 'Base'),new Card("Void Bond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("Dark Fire", 'Spell', 5, 'Base'),new Card("Essence Theft", 'Spell', 5, 'Base'),new Card("Feral Lightning", 'Spell', 5, 'Base'),new Card("Oblivion Swell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("Chaos Arc", 'Spell', 6, 'Base'),new Card("Planar Insight", 'Spell', 6, 'Base'),new Card("Wildfire Whip", 'Spell', 6, 'Base'),new Card("Devouring Shadow", 'Spell', 6, 'Expansion'),new Card("Scrying Bolt", 'Spell', 6, 'Stretch'),new Card("Arcane Nexus", 'Spell', 7, 'Base'),new Card("Consuming Void", 'Spell', 7, 'Base'),new Card("Disintegrating Scythe", 'Spell', 7, 'Expansion'),new Card("Sage's Brand", 'Spell', 7, 'Stretch'),new Card("Monstrous Inferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch'),]
-cardsRelic = [new Card("Flexing Dagger", 'Relic', 2, 'Base'),new Card("Bottled Vortex", 'Relic', 3, 'Base'),new Card("Unstable Prism", 'Relic', 3, 'Base'),new Card("Blasting Staff", 'Relic', 4, 'Base'),new Card("Focusing Orb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("Vim Dynamo", 'Relic', 4, 'Expansion'),new Card("Mage's Talisman", 'Relic', 5, 'Base'),new Card("Molten Hammer", 'Relic', 5, 'Stretch'),new Card("Temporal Helix", 'Relic', 7, 'Stretch'),]
+cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("Sifter's Pearl", 'Gem', 3, 'Base'),new Card("V'riswood Amber", 'Gem', 3, 'Base'),new Card("Leeching Agate", 'Gem', 3, 'Stretch'),new Card("Diamond Cluster", 'Gem', 4, 'Base'),new Card("Searing Ruby", 'Gem', 4, 'Base'),new Card("Burning Opal", 'Gem', 5, 'Base'),new Card("Banishing Topaz", 'Gem', 5, 'Expansion'),new Card("Clouded Sapphire", 'Gem', 6, 'Base')]
+cardsSpell = [new Card("Phoenix Flame", 'Spell', 3, 'Base'),new Card("Spectral Echo", 'Spell', 3, 'Base'),new Card("Amplify Vision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("Lava Tendril", 'Spell', 4, 'Base'),new Card("Void Bond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("Dark Fire", 'Spell', 5, 'Base'),new Card("Essence Theft", 'Spell', 5, 'Base'),new Card("Feral Lightning", 'Spell', 5, 'Base'),new Card("Oblivion Swell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("Chaos Arc", 'Spell', 6, 'Base'),new Card("Planar Insight", 'Spell', 6, 'Base'),new Card("Wildfire Whip", 'Spell', 6, 'Base'),new Card("Devouring Shadow", 'Spell', 6, 'Expansion'),new Card("Scrying Bolt", 'Spell', 6, 'Stretch'),new Card("Arcane Nexus", 'Spell', 7, 'Base'),new Card("Consuming Void", 'Spell', 7, 'Base'),new Card("Disintegrating Scythe", 'Spell', 7, 'Expansion'),new Card("Sage's Brand", 'Spell', 7, 'Stretch'),new Card("Monstrous Inferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch')]
+cardsRelic = [new Card("Flexing Dagger", 'Relic', 2, 'Base'),new Card("Bottled Vortex", 'Relic', 3, 'Base'),new Card("Unstable Prism", 'Relic', 3, 'Base'),new Card("Blasting Staff", 'Relic', 4, 'Base'),new Card("Focusing Orb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("Vim Dynamo", 'Relic', 4, 'Expansion'),new Card("Mage's Talisman", 'Relic', 5, 'Base'),new Card("Molten Hammer", 'Relic', 5, 'Stretch'),new Card("Temporal Helix", 'Relic', 7, 'Stretch')]
+
+pickGems = function(num=3){
+	return _.sample(cardsGem,num);
+};
+
+pickSpells = function(num=4){
+	return _.sample(cardsSpell,num);
+};
+
+pickRelics = function(num=2){
+	return _.sample(cardsRelic,num);
+};
+inExp = function(card, exps=["Base", "Expansion", "Stretch"]){
+	inExpo = 0;
+	for(j = 0; j < exps.length; j++){
+		if(card.expansion == exps[j]){
+			inExpo = 1;
+		}
+	}
+	return inExpo;
+};
 
 </script>
 

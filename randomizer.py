@@ -43,7 +43,7 @@ def processMages(fileName = "mages.csv"):
     return
 
 #function to pick a specified number of each type of card
-def pickSetup(gemNum=3, speNum=2, relNum=4):
+def pickSetup(gemNum=3, speNum=4, relNum=2):
     gems = rand.sample(cardsGem, gemNum)
     for x in gems:
         print (x)
@@ -57,7 +57,7 @@ def pickSetup(gemNum=3, speNum=2, relNum=4):
         print (x)
 
 #function to pick a specified number of mages
-def pickMages(exps=["Base, Expansion, Stretch"], players = 4):
+def pickMages(exps=["Base", "Expansion", "Stretch"], players = 4):
     picks = rand.sample(mages, players)
     for x in picks:
         print (x)
@@ -66,7 +66,7 @@ def pickMages(exps=["Base, Expansion, Stretch"], players = 4):
 
 #function to pick a specified number of each type
 #from a specified set of expansions
-def pickSetupFilter(exps=["Base, Expansion, Stretch"], gemNum=3, speNum=2, relNum=4):
+def pickSetupFilter(exps=["Base", "Expansion", "Stretch"], gemNum=3, speNum=2, relNum=4):
     fGems = [x for x in cardsGem if checkExp(x, exps)]
     gems = rand.sample(fGems, gemNum)
     for x in gems:

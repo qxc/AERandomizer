@@ -31,7 +31,7 @@ def processCards(fileName = "cards.csv"):
 
     f.write("cardsGem = [")
     for x in cardsGem:
-        f.write(str(x))
+        f.write(str(x)+",")
     f.write("]\n")
     f.write("cardsSpell = [")
     for x in cardsSpell:
@@ -51,9 +51,9 @@ class Card(object):
         self.cardType = cardType
         self.cost = cost
         self.expansion = expansion
-
+#leaves an extra comma at the very end of the array
     def __str__(self):
-        return "new Card(\"" + self.name + "\", '" + self.cardType + "', " + str(self.cost) + ", '" + self.expansion + "'),"
+        return "new Card(\"" + self.name + "\", '" + self.cardType + "', " + str(self.cost) + ", '" + self.expansion + "')"
         
 
 processCards()
