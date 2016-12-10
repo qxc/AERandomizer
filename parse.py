@@ -35,11 +35,11 @@ def processCards(fileName = "cards.csv"):
     f.write("]\n")
     f.write("cardsSpell = [")
     for x in cardsSpell:
-        f.write(str(x))
+        f.write(str(x)+ ",")
     f.write("]\n")
     f.write("cardsRelic = [")
     for x in cardsRelic:
-        f.write(str(x))
+        f.write(str(x)+ ",")
     f.write("]\n")
     f.close()
     return
@@ -47,7 +47,7 @@ def processCards(fileName = "cards.csv"):
 class Card(object):
 
     def __init__(self, name, cardType, cost, expansion):
-        self.name = name
+        self.name = name.replace(" ", "")
         self.cardType = cardType
         self.cost = cost
         self.expansion = expansion
