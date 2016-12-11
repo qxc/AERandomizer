@@ -44,17 +44,17 @@
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
-  <img src="images/Blank.png" name="image1" width="30%" />
-  <img src="images/Blank.png" name="image2" width="30%"/>
-  <img src="images/Blank.png" name="image3" width="30%"/>
+  <img src="images/Blank.png" id="image0" width="30%"/>
+  <img src="images/Blank.png" id="image1" width="30%"/>
+  <img src="images/Blank.png" id="image2" width="30%"/>
   <br>
-  <img src="images/Blank.png" name="image4" width="30%"/>
-  <img src="images/Blank.png" name="image5" width="30%"/>
-  <img src="images/Blank.png" name="image6" width="30%"/>
+  <img src="images/Blank.png" id="image3" width="30%"/>
+  <img src="images/Blank.png" id="image4" width="30%"/>
+  <img src="images/Blank.png" id="image5" width="30%"/>
   <br>
-  <img src="images/Blank.png" name="image7" width="30%"/>
-  <img src="images/Blank.png" name="image8" width="30%"/>
-  <img src="images/Blank.png" name="image9" width="30%"/>
+  <img src="images/Blank.png" id="image6" width="30%"/>
+  <img src="images/Blank.png" id="image7" width="30%"/>
+  <img src="images/Blank.png" id="image8" width="30%"/>
 
 <script language="JavaScript">
 
@@ -98,8 +98,42 @@ inExp = function(card){
 	return inExpo;
 };
 
+randomSetup = function(gems, relics, spells) {
+	return _.sample(gems, 3).concat(_.sample(relics, 2)).concat(_.sample(spells, 4));
+};
+
+setupOne = function(gems, relics, spells) {
+	var cards = [];
+	var smallGems = gems.filter(function(gem) {return gem.cost < 4});
+	var smallGem = _.sample(smallGems);
+	cards.push(smallGem);
+	var index = gems.indexOf(smallGem);
+	gems.splice(index,1);
+	var fourGems =  gems.filter(function(gem) {return gem.cost == 4});
+	var fourGem = _.sample(fourGems);
+	cards.push(fourGem);
+	var index = gems.indexOf(fourGem);
+	gems.splice(index,1);
+	cards.push(_.sample(gems));
+
+	cards = cards.concat(_.sample(relics,2));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 5});
+	cards = cards.concat(_.sample(smallSpells,2));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 5});
+	cards = cards.concat(_.sample(bigSpells,2));
+	return cards;
+};
+
 genMarket = function(gems, relics, spells, i){
-	return ["ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus"];
+	var cards = [];
+	if (i == 0) {
+		cards = randomSetup(gems, relics, spells);
+	}
+	if (i == 1) {
+		cards = setupOne(gems, relics, spells);
+	}
+	return cards;
 };
 
 function buttonPress() {
@@ -126,8 +160,8 @@ function buttonPress() {
 		var imageName = "image"+ i.toString();
         document.getElementById(imageName).src="images/" + cards[i] +".png";
     }	
-    document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-	document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+    //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
+	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 	
 }
 
