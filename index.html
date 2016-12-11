@@ -26,7 +26,7 @@
 <p>How would you like to randomize your setup?</p>
 
 <form>
-  <input type="radio" name="setup" value="random">Completely Random<br>
+  <input type="radio" name="setup" value="random" checked="checked">Completely Random<br>
   <input type="radio" name="setup" value="one">Market Setup 1<br>
   <input type="radio" name="setup" value="two">Market Setup 2<br>
   <input type="radio" name="setup" value="three">Market Setup 3<br>
@@ -44,9 +44,17 @@
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
-
-
-
+  <img src="images/Blank.png" name="image1" width="30%" />
+  <img src="images/Blank.png" name="image2" width="30%"/>
+  <img src="images/Blank.png" name="image3" width="30%"/>
+  <br>
+  <img src="images/Blank.png" name="image4" width="30%"/>
+  <img src="images/Blank.png" name="image5" width="30%"/>
+  <img src="images/Blank.png" name="image6" width="30%"/>
+  <br>
+  <img src="images/Blank.png" name="image7" width="30%"/>
+  <img src="images/Blank.png" name="image8" width="30%"/>
+  <img src="images/Blank.png" name="image9" width="30%"/>
 
 <script language="JavaScript">
 
@@ -62,9 +70,9 @@ Card.prototype.toString = function(){
 	return this.name;
 };
 
-cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("Sifter'sPearl", 'Gem', 3, 'Base'),new Card("V'riswoodAmber", 'Gem', 3, 'Base'),new Card("LeechingAgate", 'Gem', 3, 'Stretch'),new Card("DiamondCluster", 'Gem', 4, 'Base'),new Card("SearingRuby", 'Gem', 4, 'Base'),new Card("BurningOpal", 'Gem', 5, 'Base'),new Card("BanishingTopaz", 'Gem', 5, 'Expansion'),new Card("CloudedSapphire", 'Gem', 6, 'Base')]
-cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'Base'),new Card("SpectralEcho", 'Spell', 3, 'Base'),new Card("AmplifyVision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("LavaTendril", 'Spell', 4, 'Base'),new Card("VoidBond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("DarkFire", 'Spell', 5, 'Base'),new Card("EssenceTheft", 'Spell', 5, 'Base'),new Card("FeralLightning", 'Spell', 5, 'Base'),new Card("OblivionSwell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("ChaosArc", 'Spell', 6, 'Base'),new Card("PlanarInsight", 'Spell', 6, 'Base'),new Card("WildfireWhip", 'Spell', 6, 'Base'),new Card("DevouringShadow", 'Spell', 6, 'Expansion'),new Card("ScryingBolt", 'Spell', 6, 'Stretch'),new Card("ArcaneNexus", 'Spell', 7, 'Base'),new Card("ConsumingVoid", 'Spell', 7, 'Base'),new Card("DisintegratingScythe", 'Spell', 7, 'Expansion'),new Card("Sage'sBrand", 'Spell', 7, 'Stretch'),new Card("MonstrousInferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch')]
-cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'Base'),new Card("BottledVortex", 'Relic', 3, 'Base'),new Card("UnstablePrism", 'Relic', 3, 'Base'),new Card("BlastingStaff", 'Relic', 4, 'Base'),new Card("FocusingOrb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("VimDynamo", 'Relic', 4, 'Expansion'),new Card("Mage'sTalisman", 'Relic', 5, 'Base'),new Card("MoltenHammer", 'Relic', 5, 'Stretch'),new Card("TemporalHelix", 'Relic', 7, 'Stretch')]
+cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("SiftersPearl", 'Gem', 3, 'Base'),new Card("VriswoodAmber", 'Gem', 3, 'Base'),new Card("LeechingAgate", 'Gem', 3, 'Stretch'),new Card("DiamondCluster", 'Gem', 4, 'Base'),new Card("SearingRuby", 'Gem', 4, 'Base'),new Card("BurningOpal", 'Gem', 5, 'Base'),new Card("BanishingTopaz", 'Gem', 5, 'Expansion'),new Card("CloudedSapphire", 'Gem', 6, 'Base')];
+cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'Base'),new Card("SpectralEcho", 'Spell', 3, 'Base'),new Card("AmplifyVision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("LavaTendril", 'Spell', 4, 'Base'),new Card("VoidBond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("DarkFire", 'Spell', 5, 'Base'),new Card("EssenceTheft", 'Spell', 5, 'Base'),new Card("FeralLightning", 'Spell', 5, 'Base'),new Card("OblivionSwell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("ChaosArc", 'Spell', 6, 'Base'),new Card("PlanarInsight", 'Spell', 6, 'Base'),new Card("WildfireWhip", 'Spell', 6, 'Base'),new Card("DevouringShadow", 'Spell', 6, 'Expansion'),new Card("ScryingBolt", 'Spell', 6, 'Stretch'),new Card("ArcaneNexus", 'Spell', 7, 'Base'),new Card("ConsumingVoid", 'Spell', 7, 'Base'),new Card("DisintegratingScythe", 'Spell', 7, 'Expansion'),new Card("SagesBrand", 'Spell', 7, 'Stretch'),new Card("MonstrousInferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch')];
+cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'Base'),new Card("BottledVortex", 'Relic', 3, 'Base'),new Card("UnstablePrism", 'Relic', 3, 'Base'),new Card("BlastingStaff", 'Relic', 4, 'Base'),new Card("FocusingOrb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("VimDynamo", 'Relic', 4, 'Expansion'),new Card("MagesTalisman", 'Relic', 5, 'Base'),new Card("MoltenHammer", 'Relic', 5, 'Stretch'),new Card("TemporalHelix", 'Relic', 7, 'Stretch')];
 
 exps = ["Base", "Expansion", "Stretch"]
 
@@ -90,6 +98,10 @@ inExp = function(card){
 	return inExpo;
 };
 
+genMarket = function(gems, relics, spells, i){
+	return ["ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus"];
+};
+
 function buttonPress() {
 	var checkExp = document.forms[0];
 	exps = ["Base"];
@@ -103,15 +115,25 @@ function buttonPress() {
 	var fSpells = cardsSpell.filter(inExp);
     var checkSetup = document.forms[1];
     var txt = "";
+	var cards = [];
     for (i = 0; i < checkSetup.length; i++) {
         if (checkSetup[i].checked) {
             txt = txt + checkSetup[i].value + " ";
+			cards = genMarket(fGems, fRelics, fSpells, i);
         }
     }
+    for (i = 0; i < cards.length; i++) {
+		var imageName = "image"+ i.toString();
+        document.getElementById(imageName).src="images/" + cards[i] +".png";
+    }	
     document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 	
 }
+
+window.onload = function() {
+  buttonPress();
+};
 
 </script>
 
