@@ -148,7 +148,7 @@ setupThree = function(gems, relics, spells) {
 	var cards = [];
 	var smallGems = gems.filter(function(gem) {return gem.cost < 4});
 	var largeGems = gems.filter(function(gem) {return gem.cost == 4 || gem.cost == 5});
-	cards.push(_.sample(smallGems))
+	cards.push(_.sample(smallGems));
 	cards = cards.concat(_.sample(largeGems, 2));
 	
 	cards.push(_.sample(relics));
@@ -161,6 +161,96 @@ setupThree = function(gems, relics, spells) {
 	cards = cards.concat(_.sample(bigSpells,3));
 	return cards;
 };
+
+setupFour = function(gems, relics, spells) {
+	var cards = [];
+	var largeGems = gems.filter(function(gem) {return gem.cost > 4});
+	var largeGem = _.sample(largeGems);
+	cards.push(largeGem);
+	var index = gems.indexOf(largeGem);
+	gems.splice(index,1);
+	cards = cards.concat(_.sample(gems,2));
+	
+	var smallRelics = relics.filter(function(relic) {return relic.cost < 4});
+	var smallRelic = _.sample(smallRelics);
+	cards.push(smallRelic);
+	var index = relics.indexOf(smallRelic);
+	relics.splice(index,1);
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 5});
+	var smallSpell = _.sample(smallSpells);
+	cards.push(smallSpell);
+	var index = spells.indexOf(smallSpell);
+	spells.splice(index,1);
+	var largeSpells = spells.filter(function(spell) {return spell.cost > 5});
+	var largeSpell = _.sample(largeSpells);
+	cards.push(largeSpell);
+	var index = spells.indexOf(largeSpell);
+	spells.splice(index,1);
+	cards.push(_.sample(spells));
+	return cards;
+};
+
+
+setupFive = function(gems, relics, spells) {
+	var cards = [];
+	var twoGems = gems.filter(function(gem) {return gem.cost== 2});
+	cards.push(_.sample(twoGems));
+	var threeGems = gems.filter(function(gem) {return gem.cost== 3});
+	cards.push(_.sample(threeGems));
+	var fourGems = gems.filter(function(gem) {return gem.cost== 4});
+	cards.push(_.sample(fourGems));
+	var fiveGems = gems.filter(function(gem) {return gem.cost== 5});
+	cards.push(_.sample(fiveGems));
+	
+	cards.push(_.sample(relics));
+	
+	var fourSpells = spells.filter(function(spell) {return spell.cost == 4});
+	cards.push(_.sample(fourSpells));
+	var fiveSpells = spells.filter(function(spell) {return spell.cost == 5});
+	cards.push(_.sample(fiveSpells));
+	var sixSpells = spells.filter(function(spell) {return spell.cost == 6});
+	cards.push(_.sample(sixSpells));
+	var largeSpells = spells.filter(function(spell) {return spell.cost >6});
+	cards.push(_.sample(largeSpells));
+	return cards;
+};
+
+setupSix = function(gems, relics, spells) {
+	var cards = [];
+	var threeGems = gems.filter(function(gem) {return gem.cost== 3});
+	cards.push(_.sample(threeGems));
+	var fourGems = gems.filter(function(gem) {return gem.cost== 4});
+	cards.push(_.sample(fourGems));
+	
+	
+	var smallRelics = relics.filter(function(relic) {return relic.cost < 4});
+	var smallRelic = _.sample(smallRelics);
+	cards.push(smallRelic);
+	var index = relics.indexOf(smallRelic);
+	relics.splice(index,1);
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost == 3 || spell.cost == 4});
+	cards.push(_.sample(smallSpells));
+	var medSpells = spells.filter(function(spell) {return spell.cost == 5 || spell.cost == 6});
+	cards = cards.concat(_.sample(medSpells,2));
+	var largeSpells = spells.filter(function(spell) {return spell.cost >6});
+	cards.push(_.sample(largeSpells));
+	return cards;
+};
+
 
 genMarket = function(gems, relics, spells, i){
 	var cards = [];
@@ -175,6 +265,15 @@ genMarket = function(gems, relics, spells, i){
 	}
 	if (i == 3) {
 		cards = setupThree(gems, relics, spells);
+	}
+	if (i == 4) {
+		cards = setupFour(gems, relics, spells);
+	}
+	if (i == 5) {
+		cards = setupFive(gems, relics, spells);
+	}
+	if (i == 6) {
+		cards = setupSix(gems, relics, spells);
 	}
 	return cards;
 };
