@@ -14,7 +14,7 @@
 
 <body>
 
-<img src = "images/title.jpg" width ="50%">
+<img src = "images/title.jpg" align="middle" width ="60%">
 
 <p> Which Expansions are you playing with? </p>
 <form>
@@ -40,21 +40,20 @@
 <form>
 <input type="button" onclick="buttonPress()" value="Make Market!">
 </form>
-  <label>Your Market: </label>
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
-  <img src="images/Blank.png" name="image1" width="30%" />
-  <img src="images/Blank.png" name="image2" width="30%"/>
-  <img src="images/Blank.png" name="image3" width="30%"/>
+  <img src="images/Blank.png" id="image0" width="30%"/>
+  <img src="images/Blank.png" id="image1" width="30%"/>
+  <img src="images/Blank.png" id="image2" width="30%"/>
   <br>
-  <img src="images/Blank.png" name="image4" width="30%"/>
-  <img src="images/Blank.png" name="image5" width="30%"/>
-  <img src="images/Blank.png" name="image6" width="30%"/>
+  <img src="images/Blank.png" id="image3" width="30%"/>
+  <img src="images/Blank.png" id="image4" width="30%"/>
+  <img src="images/Blank.png" id="image5" width="30%"/>
   <br>
-  <img src="images/Blank.png" name="image7" width="30%"/>
-  <img src="images/Blank.png" name="image8" width="30%"/>
-  <img src="images/Blank.png" name="image9" width="30%"/>
+  <img src="images/Blank.png" id="image6" width="30%"/>
+  <img src="images/Blank.png" id="image7" width="30%"/>
+  <img src="images/Blank.png" id="image8" width="30%"/>
 
 <script language="JavaScript">
 
@@ -98,11 +97,188 @@ inExp = function(card){
 	return inExpo;
 };
 
+randomSetup = function(gems, relics, spells) {
+	return _.sample(gems, 3).concat(_.sample(relics, 2)).concat(_.sample(spells, 4));
+};
+
+setupOne = function(gems, relics, spells) {
+	var cards = [];
+	var smallGems = gems.filter(function(gem) {return gem.cost < 4});
+	var smallGem = _.sample(smallGems);
+	cards.push(smallGem);
+	var index = gems.indexOf(smallGem);
+	gems.splice(index,1);
+	var fourGems =  gems.filter(function(gem) {return gem.cost == 4});
+	var fourGem = _.sample(fourGems);
+	cards.push(fourGem);
+	var index = gems.indexOf(fourGem);
+	gems.splice(index,1);
+	cards.push(_.sample(gems));
+
+	cards = cards.concat(_.sample(relics,2));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 5});
+	cards = cards.concat(_.sample(smallSpells,2));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 5});
+	cards = cards.concat(_.sample(bigSpells,2));
+	return cards;
+};
+
+setupTwo = function(gems, relics, spells) {
+	var cards = [];
+	var largeGems = gems.filter(function(gem) {return gem.cost > 3});
+	cards = cards.concat(_.sample(largeGems, 3));
+
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 6});
+	cards = cards.concat(_.sample(smallSpells,3));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 6});
+	cards = cards.concat(_.sample(bigSpells,1));
+	return cards;
+};
+
+setupThree = function(gems, relics, spells) {
+	var cards = [];
+	var smallGems = gems.filter(function(gem) {return gem.cost < 4});
+	var largeGems = gems.filter(function(gem) {return gem.cost == 4 || gem.cost == 5});
+	cards.push(_.sample(smallGems));
+	cards = cards.concat(_.sample(largeGems, 2));
+	
+	cards.push(_.sample(relics));
+	
+	var threeSpells = spells.filter(function(spell) {return spell.cost == 3});
+	cards.push(_.sample(threeSpells));
+	var fourSpells = spells.filter(function(spell) {return spell.cost == 4});
+	cards.push(_.sample(fourSpells));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 5});
+	cards = cards.concat(_.sample(bigSpells,3));
+	return cards;
+};
+
+setupFour = function(gems, relics, spells) {
+	var cards = [];
+	var largeGems = gems.filter(function(gem) {return gem.cost > 4});
+	var largeGem = _.sample(largeGems);
+	cards.push(largeGem);
+	var index = gems.indexOf(largeGem);
+	gems.splice(index,1);
+	cards = cards.concat(_.sample(gems,2));
+	
+	var smallRelics = relics.filter(function(relic) {return relic.cost < 4});
+	var smallRelic = _.sample(smallRelics);
+	cards.push(smallRelic);
+	var index = relics.indexOf(smallRelic);
+	relics.splice(index,1);
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 5});
+	var smallSpell = _.sample(smallSpells);
+	cards.push(smallSpell);
+	var index = spells.indexOf(smallSpell);
+	spells.splice(index,1);
+	var largeSpells = spells.filter(function(spell) {return spell.cost > 5});
+	var largeSpell = _.sample(largeSpells);
+	cards.push(largeSpell);
+	var index = spells.indexOf(largeSpell);
+	spells.splice(index,1);
+	cards.push(_.sample(spells));
+	return cards;
+};
+
+
+setupFive = function(gems, relics, spells) {
+	var cards = [];
+	var twoGems = gems.filter(function(gem) {return gem.cost== 2});
+	cards.push(_.sample(twoGems));
+	var threeGems = gems.filter(function(gem) {return gem.cost== 3});
+	cards.push(_.sample(threeGems));
+	var fourGems = gems.filter(function(gem) {return gem.cost== 4});
+	cards.push(_.sample(fourGems));
+	var fiveGems = gems.filter(function(gem) {return gem.cost== 5});
+	cards.push(_.sample(fiveGems));
+	
+	cards.push(_.sample(relics));
+	
+	var fourSpells = spells.filter(function(spell) {return spell.cost == 4});
+	cards.push(_.sample(fourSpells));
+	var fiveSpells = spells.filter(function(spell) {return spell.cost == 5});
+	cards.push(_.sample(fiveSpells));
+	var sixSpells = spells.filter(function(spell) {return spell.cost == 6});
+	cards.push(_.sample(sixSpells));
+	var largeSpells = spells.filter(function(spell) {return spell.cost >6});
+	cards.push(_.sample(largeSpells));
+	return cards;
+};
+
+setupSix = function(gems, relics, spells) {
+	var cards = [];
+	var threeGems = gems.filter(function(gem) {return gem.cost== 3});
+	cards.push(_.sample(threeGems));
+	var fourGems = gems.filter(function(gem) {return gem.cost== 4});
+	cards.push(_.sample(fourGems));
+	
+	
+	var smallRelics = relics.filter(function(relic) {return relic.cost < 4});
+	var smallRelic = _.sample(smallRelics);
+	cards.push(smallRelic);
+	var index = relics.indexOf(smallRelic);
+	relics.splice(index,1);
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost == 3 || spell.cost == 4});
+	cards.push(_.sample(smallSpells));
+	var medSpells = spells.filter(function(spell) {return spell.cost == 5 || spell.cost == 6});
+	cards = cards.concat(_.sample(medSpells,2));
+	var largeSpells = spells.filter(function(spell) {return spell.cost >6});
+	cards.push(_.sample(largeSpells));
+	return cards;
+};
+
+
 genMarket = function(gems, relics, spells, i){
-	return ["ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus","ArcaneNexus"];
+	var cards = [];
+	if (i == 0) {
+		cards = randomSetup(gems, relics, spells);
+	}
+	if (i == 1) {
+		cards = setupOne(gems, relics, spells);
+	}
+	if (i == 2) {
+		cards = setupTwo(gems, relics, spells);
+	}
+	if (i == 3) {
+		cards = setupThree(gems, relics, spells);
+	}
+	if (i == 4) {
+		cards = setupFour(gems, relics, spells);
+	}
+	if (i == 5) {
+		cards = setupFive(gems, relics, spells);
+	}
+	if (i == 6) {
+		cards = setupSix(gems, relics, spells);
+	}
+	return cards;
 };
 
 function buttonPress() {
+	document.getElementById('image4').scrollIntoView();
 	var checkExp = document.forms[0];
 	exps = ["Base"];
 	for (i = 0; i < checkExp.length; i++) {
@@ -126,8 +302,8 @@ function buttonPress() {
 		var imageName = "image"+ i.toString();
         document.getElementById(imageName).src="images/" + cards[i] +".png";
     }	
-    document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-	document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+    //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
+	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 	
 }
 

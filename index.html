@@ -14,7 +14,7 @@
 
 <body>
 
-<img src = "images/title.jpg" width ="50%">
+<img src = "images/title.jpg" align="middle" width ="60%">
 
 <p> Which Expansions are you playing with? </p>
 <form>
@@ -26,7 +26,7 @@
 <p>How would you like to randomize your setup?</p>
 
 <form>
-  <input type="radio" name="setup" value="random" checked="checked">Completely Random<br>
+  <input type="radio" name="setup" value="random" checked="checked">Balanced<br>
   <input type="radio" name="setup" value="one">Market Setup 1<br>
   <input type="radio" name="setup" value="two">Market Setup 2<br>
   <input type="radio" name="setup" value="three">Market Setup 3<br>
@@ -40,7 +40,6 @@
 <form>
 <input type="button" onclick="buttonPress()" value="Make Market!">
 </form>
-  <label>Your Market: </label>
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
@@ -279,6 +278,7 @@ genMarket = function(gems, relics, spells, i){
 };
 
 function buttonPress() {
+	document.getElementById('image4').scrollIntoView();
 	var checkExp = document.forms[0];
 	exps = ["Base"];
 	for (i = 0; i < checkExp.length; i++) {
