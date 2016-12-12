@@ -125,6 +125,43 @@ setupOne = function(gems, relics, spells) {
 	return cards;
 };
 
+setupTwo = function(gems, relics, spells) {
+	var cards = [];
+	var largeGems = gems.filter(function(gem) {return gem.cost > 3});
+	cards = cards.concat(_.sample(largeGems, 3));
+
+	var largeRelics = relics.filter(function(relic) {return relic.cost > 4});
+	var largeRelic = _.sample(largeRelics);
+	cards.push(largeRelic);
+	var index = relics.indexOf(largeRelic);
+	relics.splice(index,1);
+	cards.push(_.sample(relics));
+	
+	var smallSpells = spells.filter(function(spell) {return spell.cost < 6});
+	cards = cards.concat(_.sample(smallSpells,3));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 6});
+	cards = cards.concat(_.sample(bigSpells,1));
+	return cards;
+};
+
+setupThree = function(gems, relics, spells) {
+	var cards = [];
+	var smallGems = gems.filter(function(gem) {return gem.cost < 4});
+	var largeGems = gems.filter(function(gem) {return gem.cost == 4 || gem.cost == 5});
+	cards.push(_.sample(smallGems))
+	cards = cards.concat(_.sample(largeGems, 2));
+	
+	cards.push(_.sample(relics));
+	
+	var threeSpells = spells.filter(function(spell) {return spell.cost == 3});
+	cards.push(_.sample(threeSpells));
+	var fourSpells = spells.filter(function(spell) {return spell.cost == 4});
+	cards.push(_.sample(fourSpells));
+	var bigSpells = spells.filter(function(spell) {return spell.cost > 5});
+	cards = cards.concat(_.sample(bigSpells,3));
+	return cards;
+};
+
 genMarket = function(gems, relics, spells, i){
 	var cards = [];
 	if (i == 0) {
@@ -132,6 +169,12 @@ genMarket = function(gems, relics, spells, i){
 	}
 	if (i == 1) {
 		cards = setupOne(gems, relics, spells);
+	}
+	if (i == 2) {
+		cards = setupTwo(gems, relics, spells);
+	}
+	if (i == 3) {
+		cards = setupThree(gems, relics, spells);
 	}
 	return cards;
 };
