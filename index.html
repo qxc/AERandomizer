@@ -14,7 +14,9 @@
 
 <body>
 
-<img src = "images/title.jpg" align="middle" width ="60%">
+<header>
+	<img src = "images/title.jpg" align="middle" width ="60%">
+</header>
 
 <p> Which Expansions are you playing with? </p>
 <form>
@@ -34,31 +36,31 @@
 <form>
 	<label>
 		<input type="radio" name="setup" value="random" checked="checked">
-		<img src="images/balanced.png" width = "12%">
+		<img src="images/balanced.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="one">
-		<img src="images/market1.png" width = "12%">
+		<img src="images/market1.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="two">
-		<img src="images/market2.png" width = "12%">
+		<img src="images/market2.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="three">
-		<img src="images/market3.png" width = "12%">
+		<img src="images/market3.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="four">
-		<img src="images/market4.png" width = "12%">
+		<img src="images/market4.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="five">
-		<img src="images/market5.png" width = "12%">
+		<img src="images/market5.jpg" width = "12%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="six">
-		<img src="images/market6.png" width = "12%">
+		<img src="images/market6.jpg" width = "12%">
 	</label>
   
 </form>
@@ -71,17 +73,17 @@
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
-  <img src="images/Blank.png" id="image0" width="30%"/>
-  <img src="images/Blank.png" id="image1" width="30%"/>
-  <img src="images/Blank.png" id="image2" width="30%"/>
+  <img src="images/Blaze.png" id="image0" width="30%"/>
+  <img src="images/Blaze.png" id="image1" width="30%"/>
+  <img src="images/Blaze.png" id="image2" width="30%"/>
   <br>
-  <img src="images/Blank.png" id="image3" width="30%"/>
-  <img src="images/Blank.png" id="image4" width="30%"/>
-  <img src="images/Blank.png" id="image5" width="30%"/>
+  <img src="images/Blaze.png" id="image3" width="30%"/>
+  <img src="images/Blaze.png" id="image4" width="30%"/>
+  <img src="images/Blaze.png" id="image5" width="30%"/>
   <br>
-  <img src="images/Blank.png" id="image6" width="30%"/>
-  <img src="images/Blank.png" id="image7" width="30%"/>
-  <img src="images/Blank.png" id="image8" width="30%"/>
+  <img src="images/Blaze.png" id="image6" width="30%"/>
+  <img src="images/Blaze.png" id="image7" width="30%"/>
+  <img src="images/Blaze.png" id="image8" width="30%"/>
 
 <script language="JavaScript">
 
@@ -328,7 +330,7 @@ function buttonPress() {
     }
     for (i = 0; i < cards.length; i++) {
 		var imageName = "image"+ i.toString();
-        document.getElementById(imageName).src="imagesJPG/" + cards[i] +".jpg";
+        document.getElementById(imageName).src="images/" + cards[i] +".jpg";
     }	
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;

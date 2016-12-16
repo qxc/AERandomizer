@@ -4,6 +4,10 @@ body {
 	color: #fee86e;
 }
 
+header {
+	text-align: center;
+}
+
 img.figure {
     display: block;
     margin-left: auto;
