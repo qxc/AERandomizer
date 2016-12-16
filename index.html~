@@ -14,7 +14,9 @@
 
 <body>
 
-<img src = "images/title.jpg" align="middle" width ="60%">
+<header>
+	<img src = "images/title2.png" align="middle" width ="60%">
+</header>
 
 <p> Which Expansions are you playing with? </p>
 <form>
@@ -32,35 +34,64 @@
 <p>How would you like to randomize your setup?</p>
 
 <form>
-  <input type="radio" name="setup" value="random" checked="checked">Balanced<br>
-  <input type="radio" name="setup" value="one">Market Setup 1<br>
-  <input type="radio" name="setup" value="two">Market Setup 2<br>
-  <input type="radio" name="setup" value="three">Market Setup 3<br>
-  <input type="radio" name="setup" value="four">Market Setup 4<br>
-  <input type="radio" name="setup" value="five">Market Setup 5<br>
-  <input type="radio" name="setup" value="six">Market Setup 6<br>
+	<label>
+		<input type="radio" name="setup" value="random" checked="checked">
+		<img src="images/balanced.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="one">
+		<img src="images/market1.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="two">
+		<img src="images/market2.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="three">
+		<img src="images/market3.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="four">
+		<img src="images/market4.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="five">
+		<img src="images/market5.jpg" width = "12%">
+	</label>
+	<label>
+		<input type="radio" name="setup" value="six">
+		<img src="images/market6.jpg" width = "12%">
+	</label>
+  
 </form>
 
 <br>
 
 <form>
-<input type="button" onclick="buttonPress()" value="Make Market!">
+<div class="aligner" align = "left">
+	<input type="image" src="MakeMarketButton.jpg" width="20%" onclick="buttonPress()">
+</div>
 </form>
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
-  <img src="images/Blank.png" id="image0" width="30%"/>
-  <img src="images/Blank.png" id="image1" width="30%"/>
-  <img src="images/Blank.png" id="image2" width="30%"/>
+  <img src="images/Blaze.jpg" id="image0" width="30%"/>
+  <img src="images/Blaze.jpg" id="image1" width="30%"/>
+  <img src="images/Blaze.jpg" id="image2" width="30%"/>
   <br>
-  <img src="images/Blank.png" id="image3" width="30%"/>
-  <img src="images/Blank.png" id="image4" width="30%"/>
-  <img src="images/Blank.png" id="image5" width="30%"/>
+  <img src="images/Blaze.jpg" id="image3" width="30%"/>
+  <img src="images/Blaze.jpg" id="image4" width="30%"/>
+  <img src="images/Blaze.jpg" id="image5" width="30%"/>
   <br>
-  <img src="images/Blank.png" id="image6" width="30%"/>
-  <img src="images/Blank.png" id="image7" width="30%"/>
-  <img src="images/Blank.png" id="image8" width="30%"/>
+  <img src="images/Blaze.jpg" id="image6" width="30%"/>
+  <img src="images/Blaze.jpg" id="image7" width="30%"/>
+  <img src="images/Blaze.jpg" id="image8" width="30%"/>
 
+  
+  <footer>
+	<img src="images/indieLogo2.png" width="14%"/>
+	<img src="images/apLogo2.png" width="20%"/>
+  </footer>
 <script language="JavaScript">
 
 var Card = function(name, cardType, cost, expansion){
@@ -306,7 +337,7 @@ function buttonPress() {
     }
     for (i = 0; i < cards.length; i++) {
 		var imageName = "image"+ i.toString();
-        document.getElementById(imageName).src="imagesJPG/" + cards[i] +".jpg";
+        document.getElementById(imageName).src="images/" + cards[i] +".jpg";
     }	
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
@@ -316,6 +347,7 @@ function buttonPress() {
 window.onload = function() {
   buttonPress();
 };
+
 
 </script>
 
