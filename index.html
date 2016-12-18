@@ -71,6 +71,7 @@
 <div class="aligner" align = "left">
 	<input type="image" src="MakeMarketButton.jpg" width="20%" onclick="buttonPress()">
 </div>
+<button type="button" onclick="buttonPress()"> Make Market! </button>
 </form>
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
@@ -89,9 +90,10 @@
 
   
   <footer>
-	<img src="images/indieLogo2.png" width="14%"/>
-	<img src="images/apLogo2.png" width="20%"/>
+	<img src="images/indielogo2.png" width="14%"/>
+	<img src="images/APlogo2.png" width="20%"/>
   </footer>
+  
 <script language="JavaScript">
 
 isMobile = function() {
@@ -117,7 +119,8 @@ cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("SiftersPearl", 'Gem', 3
 cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'Base'),new Card("SpectralEcho", 'Spell', 3, 'Base'),new Card("AmplifyVision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("LavaTendril", 'Spell', 4, 'Base'),new Card("VoidBond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("DarkFire", 'Spell', 5, 'Base'),new Card("EssenceTheft", 'Spell', 5, 'Base'),new Card("FeralLightning", 'Spell', 5, 'Base'),new Card("OblivionSwell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("ChaosArc", 'Spell', 6, 'Base'),new Card("PlanarInsight", 'Spell', 6, 'Base'),new Card("WildfireWhip", 'Spell', 6, 'Base'),new Card("DevouringShadow", 'Spell', 6, 'Expansion'),new Card("ScryingBolt", 'Spell', 6, 'Stretch'),new Card("ArcaneNexus", 'Spell', 7, 'Base'),new Card("ConsumingVoid", 'Spell', 7, 'Base'),new Card("DisintegratingScythe", 'Spell', 7, 'Expansion'),new Card("SagesBrand", 'Spell', 7, 'Stretch'),new Card("MonstrousInferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch')];
 cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'Base'),new Card("BottledVortex", 'Relic', 3, 'Base'),new Card("UnstablePrism", 'Relic', 3, 'Base'),new Card("BlastingStaff", 'Relic', 4, 'Base'),new Card("FocusingOrb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("VimDynamo", 'Relic', 4, 'Expansion'),new Card("MagesTalisman", 'Relic', 5, 'Base'),new Card("MoltenHammer", 'Relic', 5, 'Stretch'),new Card("TemporalHelix", 'Relic', 7, 'Stretch')];
 
-exps = ["Base", "Expansion", "Stretch"]
+
+exps = ["Base", "Expansion", "Stretch"];
 
 pickGems = function(num=3){
 	return _.sample(cardsGem,num);
@@ -136,8 +139,8 @@ inExp = function(card){
 	for(j = 0; j < exps.length; j++){
 		if(card.expansion == exps[j]){
 			inExpo = 1;
-		}
-	}
+		};
+	};
 	return inExpo;
 };
 
@@ -299,25 +302,25 @@ genMarket = function(gems, relics, spells, i){
 	var cards = [];
 	if (i == 0) {
 		cards = randomSetup(gems, relics, spells);
-	}
+	};
 	if (i == 1) {
 		cards = setupOne(gems, relics, spells);
-	}
+	};
 	if (i == 2) {
 		cards = setupTwo(gems, relics, spells);
-	}
+	};
 	if (i == 3) {
 		cards = setupThree(gems, relics, spells);
-	}
+	};
 	if (i == 4) {
 		cards = setupFour(gems, relics, spells);
-	}
+	};
 	if (i == 5) {
 		cards = setupFive(gems, relics, spells);
-	}
+	};
 	if (i == 6) {
 		cards = setupSix(gems, relics, spells);
-	}
+	};
 	return cards;
 };
 
@@ -328,8 +331,8 @@ function buttonPress() {
 	for (i = 0; i < checkExp.length; i++) {
         if (checkExp[i].checked) {
             exps.push(checkExp[i].value);
-        }
-    }
+        };
+    };
 	var fGems = cardsGem.filter(inExp);
 	var fRelics = cardsRelic.filter(inExp);
 	var fSpells = cardsSpell.filter(inExp);
@@ -340,17 +343,18 @@ function buttonPress() {
         if (checkSetup[i].checked) {
             txt = txt + checkSetup[i].value + " ";
 			cards = genMarket(fGems, fRelics, fSpells, i);
-        }
-    }
+        };
+    };
     for (i = 0; i < cards.length; i++) {
 		var imageName = "image"+ i.toString();
         document.getElementById(imageName).src="images/" + cards[i] +".jpg";
         //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-    }	
+    };	
+	console.log("check");
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 	
-}
+};
 
 window.onload = function() {
 	//isMobile(); //Checks if the user is on a mobile device. Can pass this to buttonPress to have it set the image width differently
