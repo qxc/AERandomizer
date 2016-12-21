@@ -1,7 +1,10 @@
 body {
-	background: #ffffff url("tile.png") repeat; /* #f3f0e9; */
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background: #ffffff url("pnpPlaymat.jpg") no-repeat top; /* #f3f0e9; */
+	font-family: Cochin, 'Arial Black', Verdana, Arial, Helvetica, sans-serif;
+	font-size: 30px;
 	color: #fee86e;
+	image-rendering: -webkit-optimize-contrast;
+
 }
 
 header {
