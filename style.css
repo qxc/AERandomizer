@@ -7,6 +7,28 @@ body {
 
 }
 
+#mages {
+	max-width:93%;
+	max-height:auto;	
+	margin:auto;
+}
+
+#market{
+	max-width:65%;
+	max-height:auto;
+	margin:auto;
+}
+
+#marketSetup{
+	max-width:50%;
+	max-height:auto;
+}
+
+#expansions{
+	max-width:50%;
+	max-height:auto;
+}
+
 header {
 	text-align: center;
 }
