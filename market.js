@@ -264,13 +264,13 @@ function buttonPress() {
     };	
     for (i = 0; i < numMages; i++) {
 		var imageName = "mage"+ i.toString();
-        document.getElementById(imageName).src="mages/" + chosenMages[i] +".jpg";
+        document.getElementById(imageName).src="mages/" + chosenMages[i] +".JPG";
         //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
     };
     var imageName = "boss0";
     var fBosses = bosses.filter(inExp);
     var chosenBoss = _.sample(fBosses);
-    document.getElementById(imageName).src="bosses/"+chosenBoss +".jpg";
+    document.getElementById(imageName).src="bosses/"+chosenBoss +".JPG";
 	console.log("check");
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
