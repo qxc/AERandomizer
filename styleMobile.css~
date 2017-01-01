@@ -8,13 +8,13 @@ body {
 }
 
 #mages {
-	max-width:93%;
+	max-width:100%;
 	max-height:auto;	
 	margin:auto;
 }
 
 #market{
-	max-width:65%;
+	max-width:70%;
 	max-height:auto;
 	margin:auto;
 }
@@ -25,7 +25,7 @@ body {
 }
 
 #expansions{
-	max-width:50%;
+	max-width:70%;
 	max-height:auto;
 }
 
