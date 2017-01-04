@@ -7,6 +7,15 @@ body {
 
 }
 
+#expansions{
+	max-width:80%;
+	max-height:auto;
+}
+#marketSetup{
+	max-width:100%;
+	max-height:auto;
+}
+
 #mages {
 	max-width:100%;
 	max-height:auto;	
@@ -14,20 +23,13 @@ body {
 }
 
 #market{
-	max-width:10%;
+	max-width:80%;
 	max-height:auto;
 	margin:auto;
 }
 
-#marketSetup{
-	max-width:100%;
-	max-height:auto;
-}
 
-#expansions{
-	max-width:70%;
-	max-height:auto;
-}
+
 
 header {
 	text-align: center;
