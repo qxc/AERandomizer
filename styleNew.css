@@ -24,6 +24,11 @@ body {
 	max-height:auto;
 }
 
+#makeMarket{
+	width:100%;
+	max-width:600px;
+}
+
 #mages {
 	width:90%;
 	max-width:1400px;
