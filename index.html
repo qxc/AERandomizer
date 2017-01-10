@@ -27,11 +27,11 @@
 <form>
 	<label>
 		<input type="checkbox" name="expansions" value="Expansion" />
-		<img src="images/depths.jpg" width = "30%">
+		<img src="images/depths.jpg" width = "35%">
 	</label>
 	<label>
 		<input type="checkbox" name="expansions" value="Stretch" />
-		<img src="images/nameless.jpg" width = "30%">
+		<img src="images/nameless.jpg" width = "35%">
 	</label>
 </form>
 </div>
@@ -42,42 +42,38 @@
 <form>
 	<label>
 		<input type="radio" name="setup" value="random" checked="checked">
-		<img src="images/balanced.jpg" width = "23%">
+		<img src="images/balanced.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="one">
-		<img src="images/market1.jpg" width = "23%">
+		<img src="images/market1.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="two">
-		<img src="images/market2.jpg" width = "23%">
+		<img src="images/market2.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="three">
-		<img src="images/market3.jpg" width = "23%">
+		<img src="images/market3.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<br>
 	<label>
 		<input type="radio" name="setup" value="four">
-		<img src="images/market4.jpg" width = "23%">
+		<img src="images/market4.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="five">
-		<img src="images/market5.jpg" width = "23%">
+		<img src="images/market5.jpg" onclick="buttonPress()" width = "23%">
 	</label>
 	<label>
 		<input type="radio" name="setup" value="six">
-		<img src="images/market6.jpg" width = "23%">
+		<img src="images/market6.jpg" onclick="buttonPress()" width = "23%">
 	</label>
   
 </form>
 </div>
-<div id = "makeMarket">
-<img src = "MakeMarketButton.jpg" onclick="buttonPress()" width = "90%">
-</div>
+
 <div id="mages">
-<br>
-<br>
   <p><span id="market"></span></p>
   <p><span id="expo"></span></p>
 
@@ -101,9 +97,11 @@
   <img src="images/PlanarInsight.jpg" id="image8" width="32%"/>
   </div>
   <footer>
+  <div id ="logos">
 	<img src="images/indielogo2.png" width="14%"/>
 	<img src="images/APlogo2.png" width="21%"/>
   </footer>
+  </div>
   
 
 

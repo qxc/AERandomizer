@@ -1,7 +1,7 @@
 body {
 	background: #426176 url("pnpPlaymat.jpg") repeat top; /* #f3f0e9; */
 	font-family: Cochin, 'Arial Black', Verdana, Arial, Helvetica, sans-serif;
-	font-size: 30px;
+	font-size: 28px;
 	color: #fee86e;
 	image-rendering: -webkit-optimize-contrast;
 
@@ -9,7 +9,7 @@ body {
 
 #title{
 	width:100%;
-	max-width:1100px;
+	max-width:1000px;
 	margin:auto;
 }
 
@@ -24,11 +24,6 @@ body {
 	max-height:auto;
 }
 
-#makeMarket{
-	width:100%;
-	max-width:550px;
-}
-
 #mages {
 	width:90%;
 	max-width:1400px;
@@ -41,6 +36,11 @@ body {
 	max-width:1000px;
 	max-height:auto;
 	margin:auto;
+}
+
+#logos{
+	width:70%;
+	max-width:1000px;
 }
 
 
