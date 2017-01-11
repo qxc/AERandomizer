@@ -1,5 +1,5 @@
 body {
-	background: #426176 url("pnpPlaymat.jpg") repeat top; /* #f3f0e9; */
+	background: #426176 url("images/pnpPlaymat.jpg") repeat top; /* #f3f0e9; */
 	font-family: Cochin, 'Arial Black', Verdana, Arial, Helvetica, sans-serif;
 	font-size: 28px;
 	color: #fee86e;
@@ -9,30 +9,30 @@ body {
 
 #title{
 	width:100%;
-	max-width:1000px;
+	max-width:900px;
 	margin:auto;
 }
 
 #expansions{
-	width:80%;
-	max-width:800px;
+	width:100%;
+	max-width:700px;
 	max-height:auto;
 }
 #marketSetup{
 	width:100%;
-	max-width:1000px;
+	max-width:2500px;
 	max-height:auto;
 }
 
 #mages {
-	width:90%;
+	width:100%;
 	max-width:1400px;
 	max-height:auto;	
 	margin:auto;
 }
 
 #market{
-	width:90%;
+	width:100%;
 	max-width:1000px;
 	max-height:auto;
 	margin:auto;
