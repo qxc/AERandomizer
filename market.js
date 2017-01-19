@@ -233,7 +233,7 @@ genMarket = function(gems, relics, spells, i){
 	return cards;
 };
 
-function buttonPress() {
+function buttonPress(j) {
 	//document.getElementById('image4').scrollIntoView();
 	var checkExp = document.forms[0];
 	exps = ["Base"];
@@ -249,13 +249,7 @@ function buttonPress() {
 	var fMages = mages.filter(inExp);
     var checkSetup = document.forms[1];
     var txt = "";
-	var cards = [];
-    for (i = 0; i < checkSetup.length; i++) {
-        if (checkSetup[i].checked) {
-            txt = txt + checkSetup[i].value + " ";
-			cards = genMarket(fGems, fRelics, fSpells, i);
-        };
-    };
+	var cards = genMarket(fGems, fRelics, fSpells, j);
     var chosenMages = _.sample(fMages,4)
     for (i = 0; i < cards.length; i++) {
 		var imageName = "image"+ i.toString();
