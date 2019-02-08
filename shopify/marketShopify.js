@@ -41,8 +41,6 @@ cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'AE'),new Card("SpectralEcho"
 cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'AE'),new Card("BottledVortex", 'Relic', 3, 'AE'),new Card("UnstablePrism", 'Relic', 3, 'AE'),new Card("BlastingStaff", 'Relic', 4, 'AE'),new Card("FocusingOrb", 'Relic', 4, 'AE'),new Card("Transmogrifier", 'Relic', 4, 'Depths'),new Card("VimDynamo", 'Relic', 4, 'Depths'),new Card("MagesTalisman", 'Relic', 5, 'AE'),new Card("MoltenHammer", 'Relic', 5, 'Nameless'),new Card("TemporalHelix", 'Relic', 7, 'Nameless'),new Card('CairnCompass','Relic',4,'WE'),new Card('ConclaveScroll','Relic',3,'WE'),new Card('FiendCatcher','Relic',3,'WE'),new Card('MagesTotem','Relic',2,'WE'),new Card('PrimordialFetish','Relic',4,'WE'),new Card('VortexGauntlet','Relic',6,'WE'),new Card('AstralCube','Relic',5,'OD'),new Card('RiddleSphere','Relic',3,'OD'),new Card('DimensionalKey','Relic',8,'TV'),new Card('EternityCharm','Relic',3,'TV'),new Card("AdrenalBatteries", 'Relic', 7, 'Legacy'),new Card("BottledStar", 'Relic', 7, 'BS'),new Card("BraneKnife", 'Relic', 3, 'Legacy'),new Card("EtherealHand", 'Relic', 6, 'Legacy'),new Card("Geophage", 'Relic', 3, 'Legacy'),new Card("InfernalMirror", 'Relic', 5, 'Legacy'),new Card("LivingGauntlet", 'Relic', 4, 'BS'),new Card("ManifoldContainer", 'Relic', 4, 'BS'),new Card("NeuralWreath", 'Relic', 4, 'Legacy'),new Card("PropheticLens", 'Relic', 4, 'Legacy'),new Card("RealityStabilizer", 'Relic', 6, 'Legacy'),new Card("ScholarsOpus", 'Relic', 3, 'BS'),new Card("SoulCords", 'Relic', 5, 'BS'),new Card("VoidMill", 'Relic', 5, 'Legacy'),new Card("VoltaicRelay", 'Relic', 4, 'Legacy')];
 bosses = [new Boss("RageBorne", 'AE'), new Boss("CarapaceQueen", 'AE'), new Boss("CrookedMask", 'AE'),new Boss("PrinceOfGluttons", 'AE'), new Boss("HordeCrone", 'Depths'), new Boss("BlightLord", 'Nameless'), new Boss("WaywardOne", 'Nameless'),new Boss('HollowCrown','WE'),new Boss('UmbraTitan','WE'),new Boss('GateWitch','WE'),new Boss('MagusOfCloaks','WE'),new Boss('KnightOfShackles','TV'),new Boss('MaidenOfThorns','TV'),new Boss('Wraithmonger','OD'),new Boss('ThriceDeadProphet','OD'),new Boss('Bladius', 'Legacy'),new Boss('Spawning Horror', 'Legacy'),new Boss('Fungal Mesh', 'Legacy'),new Boss('Deathmind', 'Legacy'),new Boss('Maelstrom: Risen', 'Legacy'),new Boss('Xaxos: Ascended', 'Legacy')];
 
-exps = ['AE', 'Depths', 'Nameless', 'OD', 'TV', 'WE', 'Legacy', 'BS'];
-
 inExp = function(card){
   inExpo = 0;
   for(j = 0; j < exps.length; j++){
@@ -237,53 +235,59 @@ hasBaseGame = function(exps){
   });
 }
 
+inExp = function(card){
+  exps.contains(card.expansion)
+};
+
 function buttonPress(j) {
   //document.getElementById('image4').scrollIntoView();
   var checkExp = document.forms[0];
   exps = [];
 
-    for (i = 0; i < checkExp.length; i++) {
-        if (checkExp[i].checked) {
-            exps.push(checkExp[i].value);
-        };
-    };
-    if(!exps.some(hasBaseGame)){
-      alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
-        return;
-    }
+  for (i = 0; i < checkExp.length; i++) {
+      if (checkExp[i].checked) {
+          exps.push(checkExp[i].value);
+      };
+  };
+  if(!exps.some(hasBaseGame)){
+    alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
+      return;
+  }
   var fGems = cardsGem.filter(inExp);
   var fRelics = cardsRelic.filter(inExp);
   var fSpells = cardsSpell.filter(inExp);
   var numMages = 4;
   var fMages = mages.filter(inExp);
-    var checkSetup = document.forms[1];
-    var txt = "";
+  var checkSetup = document.forms[1];
+  var txt = "";
   var cards = genMarket(fGems, fRelics, fSpells, j);
-    var chosenMages = _.sample(fMages,4)
-    for (i = 0; i < cards.length; i++) {
-    var imageName = "image"+ i.toString();
-        var cardName = cards[i] + ".jpg";
-        var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + cardName + "?1619266020467081722$$REVISION$$";
-        document.getElementById(imageName).src= temp;
-        //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-    };
-    for (i = 0; i < numMages; i++) {
-    var imageName = "mage"+ i.toString();
-        var mageName = chosenMages[i] + ".jpg";
-        var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
-        document.getElementById(imageName).src= temp;
-        var mageText = "#" + imageName+"Cont p";
-        document.querySelector(mageText).innerHTML = chosenMages[i];
-        //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-    };
-    var imageName = "boss0";
-    var fBosses = bosses.filter(inExp);
-    var chosenBoss = _.sample(fBosses) + ".jpg";
-    var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
-    document.getElementById(imageName).src= temp;
-    //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-    //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+  var chosenMages = _.sample(fMages,4)
 
+  for (i = 0; i < cards.length; i++) {
+    var imageName = "image"+ i.toString();
+    var cardName = cards[i] + ".jpg";
+    var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + cardName + "?1619266020467081722$$REVISION$$";
+    document.getElementById(imageName).src= temp;
+    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
+  };
+
+  for (i = 0; i < numMages; i++) {
+    var imageName = "mage"+ i.toString();
+    var mageName = chosenMages[i] + ".jpg";
+    var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
+    document.getElementById(imageName).src= temp;
+    var mageText = "#" + imageName+"Cont p";
+    document.querySelector(mageText).innerHTML = chosenMages[i];
+    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
+  };
+
+  var imageName = "boss0";
+  var fBosses = bosses.filter(inExp);
+  var chosenBoss = _.sample(fBosses) + ".jpg";
+  var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
+  document.getElementById(imageName).src= temp;
+  //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
+  //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 };
 
 window.onload = function() {
