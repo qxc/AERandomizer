@@ -35,13 +35,13 @@ Boss.prototype.toString = function(){
 	return this.name;	
 };
 
-mages = [new Mage("Adelheim", 'Base'), new Mage("Phaedraxa", 'Base'), new Mage("Brama", 'Base'), new Mage("Kadir", 'Base'), new Mage("Mist", 'Base'), new Mage("Jian", 'Base'), new Mage("Zhana", 'Expansion'), new Mage("Nym", 'Expansion'), new Mage("Reeve", 'Expansion'), new Mage("Malastar", 'Stretch'), new Mage("Xaxos", 'Base'), new Mage("Lash", 'Base')];
-cardsGem = [new Card("Jade", 'Gem', 2, 'Base'),new Card("SiftersPearl", 'Gem', 3, 'Base'),new Card("VriswoodAmber", 'Gem', 3, 'Base'),new Card("LeechingAgate", 'Gem', 3, 'Stretch'),new Card("DiamondCluster", 'Gem', 4, 'Base'),new Card("SearingRuby", 'Gem', 4, 'Base'),new Card("BurningOpal", 'Gem', 5, 'Base'),new Card("BanishingTopaz", 'Gem', 5, 'Expansion'),new Card("CloudedSapphire", 'Gem', 6, 'Base')];
-cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'Base'),new Card("SpectralEcho", 'Spell', 3, 'Base'),new Card("AmplifyVision", 'Spell', 4, 'Base'),new Card("Ignite", 'Spell', 4, 'Base'),new Card("LavaTendril", 'Spell', 4, 'Base'),new Card("VoidBond", 'Spell', 4, 'Expansion'),new Card("Blaze", 'Spell', 4, 'Stretch'),new Card("DarkFire", 'Spell', 5, 'Base'),new Card("EssenceTheft", 'Spell', 5, 'Base'),new Card("FeralLightning", 'Spell', 5, 'Base'),new Card("OblivionSwell", 'Spell', 5, 'Base'),new Card("Combustion", 'Spell', 5, 'Expansion'),new Card("ChaosArc", 'Spell', 6, 'Base'),new Card("PlanarInsight", 'Spell', 6, 'Base'),new Card("WildfireWhip", 'Spell', 6, 'Base'),new Card("DevouringShadow", 'Spell', 6, 'Expansion'),new Card("ScryingBolt", 'Spell', 6, 'Stretch'),new Card("ArcaneNexus", 'Spell', 7, 'Base'),new Card("ConsumingVoid", 'Spell', 7, 'Base'),new Card("DisintegratingScythe", 'Spell', 7, 'Expansion'),new Card("SagesBrand", 'Spell', 7, 'Stretch'),new Card("MonstrousInferno", 'Spell', 8, 'Expansion'),new Card("Radiance", 'Spell', 8, 'Stretch')];
-cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'Base'),new Card("BottledVortex", 'Relic', 3, 'Base'),new Card("UnstablePrism", 'Relic', 3, 'Base'),new Card("BlastingStaff", 'Relic', 4, 'Base'),new Card("FocusingOrb", 'Relic', 4, 'Base'),new Card("Transmogrifier", 'Relic', 4, 'Expansion'),new Card("VimDynamo", 'Relic', 4, 'Expansion'),new Card("MagesTalisman", 'Relic', 5, 'Base'),new Card("MoltenHammer", 'Relic', 5, 'Stretch'),new Card("TemporalHelix", 'Relic', 7, 'Stretch')];
-bosses = [new Boss("RageBorne", 'Base'), new Boss("CarapaceQueen", 'Base'), new Boss("CrookedMask", 'Base'),new Boss("PrinceOfGluttons", 'Base'), new Boss("HordeCrone", 'Expansion'), new Boss("BlightLord", 'Stretch'), new Boss("WaywardOne", 'Stretch')]; 
+mages = [new Mage("Adelheim", 'AE'), new Mage("Phaedraxa", 'AE'), new Mage("Brama", 'AE'), new Mage("Kadir", 'AE'), new Mage("Mist", 'AE'), new Mage("Jian", 'AE'), new Mage("Zhana", 'Depths'), new Mage("Nym", 'Depths'), new Mage("Reeve", 'Depths'), new Mage("Malastar", 'Nameless'), new Mage("Xaxos", 'AE'), new Mage("Lash", 'AE'),new Mage('Dezmodia','WE'),new Mage('Garu','WE'),new Mage('Gex','WE'),new Mage('Mazahaedron','WE'),new Mage('MistWE','WE'),new Mage('Quilius','WE'),new Mage('Ulgimor','WE'),new Mage('YanMagda','WE'),new Mage('Sparrow','TV'),new Mage('XaxosTV','TV'),new Mage('Indira','OD'),new Mage('Remnant','OD')];
+cardsGem = [new Card("Jade", 'Gem', 2, 'AE'),new Card("SiftersPearl", 'Gem', 3, 'AE'),new Card("VriswoodAmber", 'Gem', 3, 'AE'),new Card("LeechingAgate", 'Gem', 3, 'Nameless'),new Card("DiamondCluster", 'Gem', 4, 'AE'),new Card("SearingRuby", 'Gem', 4, 'AE'),new Card("BurningOpal", 'Gem', 5, 'AE'),new Card("BanishingTopaz", 'Gem', 5, 'Depths'),new Card("CloudedSapphire", 'Gem', 6, 'AE'),new Card('BloodstoneJewel','Gem',6,'WE'),new Card('BreachOre','Gem',4,'WE'),new Card('DreadDiamond','Gem',3,'WE'),new Card('ErraticIngot','Gem',5,'WE'),new Card('FrozenMagmite','Gem',3,'WE'),new Card('ScoriaSlag','Gem',4,'WE'),new Card('VolcanicGlass','Gem',3,'WE'),new Card('AlienElement','Gem',4,'OD'),new Card('HauntedBerylite','Gem',3,'OD'),new Card('PainStone','Gem',6,'OD'),new Card('FossilizedScarab','Gem',3,'TV')];
+cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'AE'),new Card("SpectralEcho", 'Spell', 3, 'AE'),new Card("AmplifyVision", 'Spell', 4, 'AE'),new Card("Ignite", 'Spell', 4, 'AE'),new Card("LavaTendril", 'Spell', 4, 'AE'),new Card("VoidBond", 'Spell', 4, 'Depths'),new Card("Blaze", 'Spell', 4, 'Nameless'),new Card("DarkFire", 'Spell', 5, 'AE'),new Card("EssenceTheft", 'Spell', 5, 'AE'),new Card("FeralLightning", 'Spell', 5, 'AE'),new Card("OblivionSwell", 'Spell', 5, 'AE'),new Card("Combustion", 'Spell', 5, 'Depths'),new Card("ChaosArc", 'Spell', 6, 'AE'),new Card("PlanarInsight", 'Spell', 6, 'AE'),new Card("WildfireWhip", 'Spell', 6, 'AE'),new Card("DevouringShadow", 'Spell', 6, 'Depths'),new Card("ScryingBolt", 'Spell', 6, 'Nameless'),new Card("ArcaneNexus", 'Spell', 7, 'AE'),new Card("ConsumingVoid", 'Spell', 7, 'AE'),new Card("DisintegratingScythe", 'Spell', 7, 'Depths'),new Card("SagesBrand", 'Spell', 7, 'Nameless'),new Card("MonstrousInferno", 'Spell', 8, 'Depths'),new Card("Radiance", 'Spell', 8, 'Nameless'), new Card('Aurora','Spell',5,'WE'),new Card('Carbonize','Spell',4,'WE'),new Card('ConjureTheLost','Spell',6,'WE'),new Card('CelestialSpire','Spell',5,'WE'),new Card('ConvectionField','Spell',5,'WE'),new Card('Crystallize','Spell',8,'WE'),new Card('Equilibrium','Spell',7,'WE'),new Card('FieryTorrent','Spell',5,'WE'),new Card('JaggedLightning','Spell',4,'WE'),new Card('Kindle','Spell',4,'WE'),new Card('NovaForge','Spell',6,'WE'),new Card('PyrotechnicSurge','Spell',4,'WE'),new Card('ReduceToAsh','Spell',7,'WE'),new Card('ThoughtformFamiliar','Spell',3,'WE'),new Card('Char','Spell',8,'OD'),new Card('Catalyst','Spell',6,'OD'),new Card('FeedbackAura','Spell',5,'OD'),new Card('NetherConduit','Spell',7,'OD'),new Card('Pyromancy','Spell',7,'OD'),new Card('Scorch','Spell',5,'OD'),new Card('Resonate','Spell',6,'TV'),new Card('Conflagration','Spell',3,'TV'),new Card('Fulminate','Spell',5,'TV'),new Card('InnerFire','Spell',2,'TV'),new Card('ThermalDart','Spell',4,'TV')];
+cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'AE'),new Card("BottledVortex", 'Relic', 3, 'AE'),new Card("UnstablePrism", 'Relic', 3, 'AE'),new Card("BlastingStaff", 'Relic', 4, 'AE'),new Card("FocusingOrb", 'Relic', 4, 'AE'),new Card("Transmogrifier", 'Relic', 4, 'Depths'),new Card("VimDynamo", 'Relic', 4, 'Depths'),new Card("MagesTalisman", 'Relic', 5, 'AE'),new Card("MoltenHammer", 'Relic', 5, 'Nameless'),new Card("TemporalHelix", 'Relic', 7, 'Nameless'),new Card('CairnCompass','Relic',4,'WE'),new Card('ConclaveScroll','Relic',3,'WE'),new Card('FiendCatcher','Relic',3,'WE'),new Card('MagesTotem','Relic',2,'WE'),new Card('PrimordialFetish','Relic',4,'WE'),new Card('VortexGauntlet','Relic',6,'WE'),new Card('AstralCube','Relic',5,'OD'),new Card('RiddleSphere','Relic',3,'OD'),new Card('DimensionalKey','Relic',8,'TV'),new Card('EternityCharm','Relic',3,'TV')];
+bosses = [new Boss("RageBorne", 'AE'), new Boss("CarapaceQueen", 'AE'), new Boss("CrookedMask", 'AE'),new Boss("PrinceOfGluttons", 'AE'), new Boss("HordeCrone", 'Depths'), new Boss("BlightLord", 'Nameless'), new Boss("WaywardOne", 'Nameless'),new Boss('HollowCrown','WE'),new Boss('UmbraTitan','WE'),new Boss('GateWitch','WE'),new Boss('MagusOfCloaks','WE'),new Boss('KnightOfShackles','TV'),new Boss('MaidenOfThorns','TV'),new Boss('Wraithmonger','OD'),new Boss('ThriceDeadProphet','OD')]; 
 
-exps = ["Base", "Expansion", "Stretch"];
+exps = ['AE', 'Depths', 'Nameless', 'OD', 'TV', 'WE'];
 
 inExp = function(card){
 	inExpo = 0;
@@ -155,10 +155,8 @@ setupFour = function(gems, relics, spells) {
 
 setupFive = function(gems, relics, spells) {
 	var cards = [];
-	var twoGems = gems.filter(function(gem) {return gem.cost== 2});
-	cards.push(_.sample(twoGems));
-	var threeGems = gems.filter(function(gem) {return gem.cost== 3});
-	cards.push(_.sample(threeGems));
+	var twoGems = gems.filter(function(gem) {return gem.cost== 2 || gem.cost==3});
+  	cards = cards.concat(_.sample(twoGems, 2));
 	var fourGems = gems.filter(function(gem) {return gem.cost== 4});
 	cards.push(_.sample(fourGems));
 	var fiveGems = gems.filter(function(gem) {return gem.cost== 5});
@@ -233,15 +231,29 @@ genMarket = function(gems, relics, spells, i){
 	return cards;
 };
 
-function buttonPress() {
+  	hasBaseGame = function(exps){
+    
+    for(i = 0; i < exps.length; i++){
+    	if(exps[i] == "AE" || exps[i] == "WE")
+          return true;
+    }
+    return false;
+  }
+  
+function buttonPress(j) {
 	//document.getElementById('image4').scrollIntoView();
 	var checkExp = document.forms[0];
-	exps = ["Base"];
-	for (i = 0; i < checkExp.length; i++) {
+	exps = [];
+	
+  	for (i = 0; i < checkExp.length; i++) {
         if (checkExp[i].checked) {
             exps.push(checkExp[i].value);
         };
     };
+  	if(!hasBaseGame(exps)){
+      alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
+      	return;
+  	}
 	var fGems = cardsGem.filter(inExp);
 	var fRelics = cardsRelic.filter(inExp);
 	var fSpells = cardsSpell.filter(inExp);
@@ -249,28 +261,29 @@ function buttonPress() {
 	var fMages = mages.filter(inExp);
     var checkSetup = document.forms[1];
     var txt = "";
-	var cards = [];
-    for (i = 0; i < checkSetup.length; i++) {
-        if (checkSetup[i].checked) {
-            txt = txt + checkSetup[i].value + " ";
-			cards = genMarket(fGems, fRelics, fSpells, i);
-        };
-    };
+	var cards = genMarket(fGems, fRelics, fSpells, j);
     var chosenMages = _.sample(fMages,4)
     for (i = 0; i < cards.length; i++) {
 		var imageName = "image"+ i.toString();
-        document.getElementById(imageName).src= cards[i] +".jpg";
+      	var cardName = cards[i] + ".jpg";
+        var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + cardName + "?1619266020467081722$$REVISION$$";
+        document.getElementById(imageName).src= temp;
         //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
     };	
     for (i = 0; i < numMages; i++) {
 		var imageName = "mage"+ i.toString();
-        document.getElementById(imageName).src= chosenMages[i] +".jpg";
+      	var mageName = chosenMages[i] + ".jpg";
+        var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
+        document.getElementById(imageName).src= temp;
+        var mageText = "#" + imageName+"Cont p";
+        document.querySelector(mageText).innerHTML = chosenMages[i];
         //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
     };
     var imageName = "boss0";
     var fBosses = bosses.filter(inExp);
-    var chosenBoss = _.sample(fBosses);
-    document.getElementById(imageName).src= chosenBoss +".jpg";
+    var chosenBoss = _.sample(fBosses) + ".jpg";
+  	var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
+    document.getElementById(imageName).src= temp;
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
 	//document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 	
