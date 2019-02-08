@@ -231,14 +231,11 @@ genMarket = function(gems, relics, spells, i){
   return cards;
 };
 
-    hasBaseGame = function(exps){
-
-    for(i = 0; i < exps.length; i++){
-      if(exps[i] == "AE" || exps[i] == "WE")
-          return true;
-    }
-    return false;
-  }
+hasBaseGame = function(exps){
+  exps.some(function(exp) {
+    return exp == "AE" || exp == "WE" || exp == "Legacy"
+  });
+}
 
 function buttonPress(j) {
   //document.getElementById('image4').scrollIntoView();
@@ -250,7 +247,7 @@ function buttonPress(j) {
             exps.push(checkExp[i].value);
         };
     };
-    if(!hasBaseGame(exps)){
+    if(!exps.some(hasBaseGame)){
       alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
         return;
     }
