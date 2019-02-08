@@ -282,7 +282,7 @@ function buttonPress(j) {
     var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
     document.getElementById(imageName).src= temp;
     //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-  //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+    //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
 
 };
 
