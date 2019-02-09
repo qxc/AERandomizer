@@ -195,6 +195,7 @@ setupSix = function(gems, relics, spells) {
 
 genMarket = function(gems, relics, spells, i){
   var cards = [];
+  console.log(gems, relics, spells, i);
   if (i == 0) {
     cards = randomSetup(gems, relics, spells);
   };
@@ -243,9 +244,11 @@ buttonPress = function(j) {
   var fSpells = cardsSpell.filter(boundInExp);
   var fMages = mages.filter(boundInExp);
   var cards = genMarket(fGems, fRelics, fSpells, j);
-  var chosenMages = _.sample(fMages,4)
+  var chosenMages = _.sample(fMages,4);
 
+  console.log("Almost cards");
   cards.forEach(function(card, i) {
+    console.log(card, i);
     var imageName = "image" + i.toString();
     var cardName = card + ".jpg";
     var temp = "images/" + card;
@@ -315,11 +318,11 @@ createRandomizers = function() {
   var list = [...Array(7).keys()].map(number => "market" + number);
   list[0] = "balanced";
 
-  list.forEach(function(button, i) {
+  list.forEach(function(name, i) {
     var label = document.createElement("label");
-    var input = createInput("radio", button.toString(), "setup", i == 0);
-    var img = createImage(button, "180px");
-    img.onclick = function() { buttonPress(button) };
+    var input = createInput("radio", name.toString(), "setup", i == 0);
+    var img = createImage(name, "180px");
+    img.onclick = function() { buttonPress(i) };
 
     label.appendChild(input);
     label.appendChild(img);
