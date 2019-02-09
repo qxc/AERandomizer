@@ -144,7 +144,7 @@ setupFour = function(gems, relics, spells) {
 setupFive = function(gems, relics, spells) {
   var cards = [];
   var twoGems = gems.filter(function(gem) {return gem.cost== 2 || gem.cost==3});
-    cards = cards.concat(_.sample(twoGems, 2));
+  cards = cards.concat(_.sample(twoGems, 2));
   var fourGems = gems.filter(function(gem) {return gem.cost== 4});
   cards.push(_.sample(fourGems));
   var fiveGems = gems.filter(function(gem) {return gem.cost== 5});
@@ -192,10 +192,8 @@ setupSix = function(gems, relics, spells) {
   return cards;
 };
 
-
 genMarket = function(gems, relics, spells, i){
   var cards = [];
-  console.log(gems, relics, spells, i);
   if (i == 0) {
     cards = randomSetup(gems, relics, spells);
   };
@@ -221,7 +219,7 @@ genMarket = function(gems, relics, spells, i){
 };
 
 hasBaseGame = function(exp) {
-  return exp == "AE" || exp == "WE" || exp == "Legacy"
+  return ["AE", "WE", "Legacy"].includes(exp)
 }
 
 inExp = function(exps, card) {
