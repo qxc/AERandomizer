@@ -1,134 +1,69 @@
-
 <!DOCTYPE html>
 <html>
+  <! http://underscorejs.org/#sample documentation for this library >
+  <script src ="Underscore.js" type="text/javascript"></script>
+  <script src = "marketShopify.js?$$REVISION$$" type="text/javascript"></script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Aeon's End Randomizer</title>
+    <link rel="stylesheet" type="text/css" href=//cdn.shopify.com/s/files/1/0384/0265/t/13/assets/styleNew.css?$$REVISION$$&13204620228597376113/>
+    <link rel="canonical" href="https://www.actionphasegames.com/pages/aerandomizer">
+  </head>
+  <body>
+    <div id = "title">
+      <header>
+        <img src = //cdn.shopify.com/s/files/1/0384/0265/files/title2.png?13204620228597376113 width ="60%">
+      </header>
+    </div>
+    <div id = "instructTitle">
+      <p> Which Expansions are you playing with? </p>
+      <div id = "expansions"></div>
+    </div>
 
-<! http://underscorejs.org/#sample documentation for this library >
-<script src ="Underscore.js" type="text/javascript">
-</script>
-<script src = "marketShopify.js?$$REVISION$$" type="text/javascript">
-</script>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Aeon's End Randomizer</title>
-  <link rel="stylesheet" type="text/css" href=//cdn.shopify.com/s/files/1/0384/0265/t/13/assets/styleNew.css?$$REVISION$$&13204620228597376113/>
+    <div id = "instructTitle">
+      <p>How would you like to randomize your setup?</p>
+    </div>
+    <div id = "marketSetup"></div>
 
-<link rel="canonical" href="https://www.actionphasegames.com/pages/aerandomizer">
-</head>
+    <div id="mages">
+      <div class="mage-container" id="mage0Cont">
+        <p> Jian </p>
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Jian.jpg?13204620228597376113?$$REVISION$$ id="mage0"> 
+      </div>
+      <div class="mage-container" id="mage1Cont">
+        <p> Brama </p>
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Brama.jpg?13204620228597376113?$$REVISION$$ id="mage1"> 
+      </div>
+      <div class="mage-container" id="mage2Cont">
+        <p> Adelheim </p>
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Adelheim.jpg?13204620228597376113?$$REVISION$$ id="mage2"> 
+      </div>
+      <div class="mage-container" id="mage3Cont">
+        <p> Phaedraxa </p>
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Phaedraxa.jpg?13204620228597376113?$$REVISION$$ id="mage3"> 
+      </div>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/RageBorne.jpg?13204620228597376113?$$REVISION$$ id="boss0" width = 15%>
+    </div>
 
-<body>
-<div id = "title">
-<header>
-  <img src = //cdn.shopify.com/s/files/1/0384/0265/files/title2.png?13204620228597376113 width ="60%">
-</header>
-</div>
- <div id = "instructTitle">
-<p> Which Expansions are you playing with? </p>
-<div id = "expansions">
-<form>
-  <label>
-    <input type="checkbox" name="expansions" value="AE" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/AeonsEnd.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <label>
-    <input type="checkbox" name="expansions" value="Depths" />
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/TheDepths.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <label>
-    <input type="checkbox" name="expansions" value="Nameless" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/TheNameless.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <br>
-  <label>
-    <input type="checkbox" name="expansions" value="WE" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/WarEternal.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-    <label>
-    <input type="checkbox" name="expansions" value="TV" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/TheVoid.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <label>
-    <input type="checkbox" name="expansions" value="OD" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/TheOuterDark.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <br>
-  <label>
-    <input type="checkbox" name="expansions" value="Legacy" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/Legacy.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-  <label>
-    <input type="checkbox" name="expansions" value="BS" />
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/BuriedSecrets.jpg?13204620228597376113?$$REVISION$$ width = "30%">
-  </label>
-</form>
-</div>
-</div>
-<div id = "instructTitle">
-<p>How would you like to randomize your setup?</p>
-</div>
-<div id = "marketSetup">
-<form>
-  <label>
-    <input type="radio" name="setup" value="random" checked="checked">
-    <img src= //cdn.shopify.com/s/files/1/0384/0265/files/balanced.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(0)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="one">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market1.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(1)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="two">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market2.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(2)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="three">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market3.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(3)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="four">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market4.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(4)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="five">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market5.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(5)" width = "180px">
-  </label>
-  <label>
-    <input type="radio" name="setup" value="six">
-    <img src=//cdn.shopify.com/s/files/1/0384/0265/files/market6.jpg?13204620228597376113?$$REVISION$$ onclick="buttonPress(6)" width = "180px">
-  </label>
+    <div id ="market">
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Jade.jpg?13204620228597376113 id="image0" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/VriswoodAmber.jpg?13204620228597376113 id="image1" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/DiamondCluster.jpg?13204620228597376113 id="image2" width="20%"/>
+      <br>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/FocusingOrb.jpg?13204620228597376113 id="image3" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/MagesTalisman.jpg?13204620228597376113 id="image4" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/SpectralEcho.jpg?13204620228597376113 id="image5" width="20%"/>
+      <br>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/EssenceTheft.jpg?13204620228597376113 id="image6" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/WildfireWhip.jpg?13204620228597376113 id="image7" width="20%"/>
+      <img src=//cdn.shopify.com/s/files/1/0384/0265/files/PlanarInsight.jpg?13204620228597376113 id="image8" width="20%"/>
+    </div>
 
-</form>
-</div>
-<div id="mages">
-  <p><span id="market"></span></p>
-  <p><span id="expo"></span></p>
-
-  <div class="mage-container" id = "mage0Cont"> <p> Jian </p> <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Jian.jpg?13204620228597376113?$$REVISION$$ id="mage0"> </div>
-  <div class="mage-container" id = "mage1Cont"> <p> Brama </p> <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Brama.jpg?13204620228597376113?$$REVISION$$ id="mage1"> </div>
-  <div class="mage-container" id = "mage2Cont"> <p> Adelheim </p> <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Adelheim.jpg?13204620228597376113?$$REVISION$$ id="mage2"> </div>
-  <div class="mage-container" id = "mage3Cont"> <p> Phaedraxa </p><img src=//cdn.shopify.com/s/files/1/0384/0265/files/Phaedraxa.jpg?13204620228597376113?$$REVISION$$ id="mage3"> </div>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/RageBorne.jpg?13204620228597376113?$$REVISION$$ id="boss0" width = 15%>
-  </div>
-
-
-  <div id ="market">
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/Jade.jpg?13204620228597376113 id="image0" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/VriswoodAmber.jpg?13204620228597376113 id="image1" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/DiamondCluster.jpg?13204620228597376113 id="image2" width="20%"/>
-  <br>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/FocusingOrb.jpg?13204620228597376113 id="image3" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/MagesTalisman.jpg?13204620228597376113 id="image4" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/SpectralEcho.jpg?13204620228597376113 id="image5" width="20%"/>
-  <br>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/EssenceTheft.jpg?13204620228597376113 id="image6" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/WildfireWhip.jpg?13204620228597376113 id="image7" width="20%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/PlanarInsight.jpg?13204620228597376113 id="image8" width="20%"/>
-  </div>
-  <footer>
-    <div id ="logos">
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/indielogo2.png?13204620228597376113 width="6%"/>
-  <img src=//cdn.shopify.com/s/files/1/0384/0265/files/APlogo2.png?13204620228597376113 width="9%"/>
-     </div>
-  </footer>
-
-</body>
+    <footer>
+      <div id ="logos">
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/indielogo2.png?13204620228597376113 width="6%"/>
+        <img src=//cdn.shopify.com/s/files/1/0384/0265/files/APlogo2.png?13204620228597376113 width="9%"/>
+      </div>
+    </footer>
+  </body>
 </html>
