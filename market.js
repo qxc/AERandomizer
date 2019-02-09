@@ -219,120 +219,114 @@ genMarket = function(gems, relics, spells, i){
   return cards;
 };
 
-hasBaseGame = function(exps){
-  exps.some(function(exp) {
-    return exp == "AE" || exp == "WE" || exp == "Legacy"
-  });
+hasBaseGame = function(exp) {
+  return exp == "AE" || exp == "WE" || exp == "Legacy"
 }
 
-inExp = function(card){
-  exps.contains(card.expansion)
+inExp = function(exps, card) {
+  exps.includes(card.expansion)
 };
 
 function buttonPress(j) {
-  //document.getElementById('image4').scrollIntoView();
-  var checkExp = document.forms[0];
-  exps = [];
+  exps = Array.from(document.querySelectorAll('input[name="expansions"]'))
+            .filter((checkbox) => !checkbox.checked)
+            .map((checkbox) => checkbox.value);
 
-  for (i = 0; i < checkExp.length; i++) {
-      if (checkExp[i].checked) {
-          exps.push(checkExp[i].value);
-      };
-  };
   if(!exps.some(hasBaseGame)){
     alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
       return;
   }
-  var fGems = cardsGem.filter(inExp);
-  var fRelics = cardsRelic.filter(inExp);
-  var fSpells = cardsSpell.filter(inExp);
-  var numMages = 4;
-  var fMages = mages.filter(inExp);
-  var checkSetup = document.forms[1];
-  var txt = "";
+  boundInExp = inExp.bind(this, exps);
+  var fGems = cardsGem.filter(boundInExp);
+  var fRelics = cardsRelic.filter(boundInExp);
+  var fSpells = cardsSpell.filter(boundInExp);
+  var fMages = mages.filter(boundInExp);
   var cards = genMarket(fGems, fRelics, fSpells, j);
   var chosenMages = _.sample(fMages,4)
 
-  for (i = 0; i < cards.length; i++) {
-    var imageName = "image"+ i.toString();
-    document.getElementById(imageName).src="images/" + cards[i] +".jpg";
-    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-  };
+  cards.forEach(function(card, i) {
+    var imageName = "image" + i.toString();
+    var cardName = card + ".jpg";
+    var temp = "images/" + card;
+    document.getElementById(imageName).src = temp;
+  });
 
-  for (i = 0; i < numMages; i++) {
-    var imageName = "mage"+ i.toString();
-    document.getElementById(imageName).src="mages/" + chosenMages[i] +".JPG";
-    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-  };
+  chosenMages.forEach(function(mage, i) {
+    var imageName = "mage" + i.toString();
+    var mageName = imageName + ".jpg";
+    var temp = "mages/" + mageName;
+    document.getElementById(imageName).src = temp;
+
+    var mageText = "#" + imageName+"Cont p";
+    document.querySelector(mageText).innerHTML = mage
+  });
 
   var imageName = "boss0";
-  var fBosses = bosses.filter(inExp);
-  var chosenBoss = _.sample(fBosses);
-  document.getElementById(imageName).src="bosses/"+chosenBoss +".JPG";
-  console.log("check");
-  //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-  //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+  var fBosses = bosses.filter(boundInExp);
+  var chosenBoss = _.sample(fBosses) + ".jpg";
+  var temp = "bosses/" + chosenBoss;
+  document.getElementById(imageName).src = temp;
 };
 
-createCheckbox = function(value, name, checked = false) {
+createInput = function(type, value, name, checked = false) {
   var input = document.createElement("input");
-  input.type = "checkbox";
-  input.name = "expansions";
+  input.type = type;
+  input.name = name;
   input.value = value;
-  input.checked = checked;
+  // input.checked = checked;
 
   return input;
 };
 
-createImage = function(imageName) {
+createImage = function(imageName, width) {
   var img = document.createElement("img");
-  img.src = "images/" + imageName;
-  img.width = "30%";
+  img.src = "images/" + imageName + ".jpg";
+  img.style.width = width;
 
   return img;
 };
 
 createExpBoxes = function() {
-  var ae1 = new Map([["AE", "AeonsEnd"], ["Depths", "TheDepths"], ["Namesless", "TheNameless"]]);
+  var ae1 = new Map([["AE", "AeonsEnd"], ["Depths", "TheDepths"], ["Nameless", "TheNameless"]]);
   var ae2 = new Map([["WE", "WarEternal"], ["TV", "TheVoid"], ["OD", "TheOuterDark"]]);
-  var ae3 = new Map)[["Legacy", "Legacy"], ["BS", "BuriedSecrets"]]);
-  var waves = [ae1, ae2, ae3];
-  var marketForm = document.getElementById("marketSetup").firstChild
+  var ae3 = new Map([["Legacy", "Legacy"], ["BS", "BuriedSecrets"]]);
+  var waves = [ae1, ae2]; //, ae3];
+  var expansions = document.getElementById("expansions")
 
   waves.forEach(function(waveMap) {
-    waveMap.forEach(function(imageName, value, map) {
+    waveMap.forEach(function(imageName, value, map, i) {
       var label = document.createElement("label");
-      var input = createCheckbox(value, "expansions");
-      var img = createImage(imageName);
+      var input = createInput("checkbox", value, "expansions");
+      var img = createImage(imageName, "30%");
 
       label.appendChild(input);
       label.appendChild(img);
-      marketForm.appendChild(label);
+      expansions.appendChild(label);
     });
 
     var br = document.createElement("br");
-    marketForm.appendChild(br);
+    expansions.appendChild(br);
   });
 };
 
 createRandomizers = function() {
-  var marketForm = document.getElementById("marketSetup").firstChild
-  [...Array(7).keys()].forEach(function(button) {
+  var market = document.getElementById("marketSetup")
+  var list = [...Array(7).keys()].map(number => "market" + number);
+  list[0] = "balanced";
+
+  list.forEach(function(button) {
     var label = document.createElement("label");
-    var input = createCHeckbox(number.toString(), "setup", button == 0);
-    var img = createImage("market" + button);
+    var input = createInput("radio", button.toString(), "setup", button == 0);
+    var img = createImage(button, "180px");
     img.onclick = buttonPress(button);
 
     label.appendChild(input);
     label.appendChild(img);
-    marketForm.appendChild(label);
+    market.appendChild(label);
   });
 };
 
 window.onload = function() {
   createExpBoxes();
   createRandomizers();
-  //isMobile(); //Checks if the user is on a mobile device. Can pass this to buttonPress to have it set the image width differently
-  //buttonPress();
-
 };
