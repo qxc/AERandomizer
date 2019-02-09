@@ -224,18 +224,19 @@ hasBaseGame = function(exp) {
 }
 
 inExp = function(exps, card) {
-  exps.includes(card.expansion)
+  return exps.includes(card.expansion)
 };
 
-function buttonPress(j) {
+buttonPress = function(j) {
   exps = Array.from(document.querySelectorAll('input[name="expansions"]'))
-            .filter((checkbox) => !checkbox.checked)
+            .filter((checkbox) => checkbox.checked)
             .map((checkbox) => checkbox.value);
 
   if(!exps.some(hasBaseGame)){
     alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
       return;
   }
+
   boundInExp = inExp.bind(this, exps);
   var fGems = cardsGem.filter(boundInExp);
   var fRelics = cardsRelic.filter(boundInExp);
@@ -253,7 +254,7 @@ function buttonPress(j) {
 
   chosenMages.forEach(function(mage, i) {
     var imageName = "mage" + i.toString();
-    var mageName = imageName + ".jpg";
+    var mageName = mage + ".jpg";
     var temp = "mages/" + mageName;
     document.getElementById(imageName).src = temp;
 
@@ -273,7 +274,7 @@ createInput = function(type, value, name, checked = false) {
   input.type = type;
   input.name = name;
   input.value = value;
-  // input.checked = checked;
+  input.checked = checked;
 
   return input;
 };
@@ -294,7 +295,7 @@ createExpBoxes = function() {
   var expansions = document.getElementById("expansions")
 
   waves.forEach(function(waveMap) {
-    waveMap.forEach(function(imageName, value, map, i) {
+    waveMap.forEach(function(imageName, value, map) {
       var label = document.createElement("label");
       var input = createInput("checkbox", value, "expansions");
       var img = createImage(imageName, "30%");
@@ -314,11 +315,11 @@ createRandomizers = function() {
   var list = [...Array(7).keys()].map(number => "market" + number);
   list[0] = "balanced";
 
-  list.forEach(function(button) {
+  list.forEach(function(button, i) {
     var label = document.createElement("label");
-    var input = createInput("radio", button.toString(), "setup", button == 0);
+    var input = createInput("radio", button.toString(), "setup", i == 0);
     var img = createImage(button, "180px");
-    img.onclick = buttonPress(button);
+    img.onclick = function() { buttonPress(button) };
 
     label.appendChild(input);
     label.appendChild(img);
