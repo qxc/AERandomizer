@@ -232,8 +232,8 @@ buttonPress = function(j) {
             .map((checkbox) => checkbox.value);
 
   if(!exps.some(hasBaseGame)){
-    alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
-      return;
+    alert("Select Aeon's End, War Eternal, Legacy or a combination of the three in addition to other expansions.");
+    return;
   }
 
   boundInExp = inExp.bind(this, exps);
