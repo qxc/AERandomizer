@@ -267,6 +267,13 @@ buttonPress = function(j) {
   document.getElementById(imageName).src= temp;
 };
 
+createItem = function(parent, input, img) {
+  var label = document.createElement("label");
+  label.appendChild(input);
+  label.appendChild(img);
+  parent.appendChild(label);
+};
+
 createInput = function(type, value, name, checked = false) {
   var input = document.createElement("input");
   input.type = type;
@@ -291,18 +298,13 @@ createExpBoxes = function() {
   var ae3 = new Map([["Legacy", "Legacy"], ["BS", "BuriedSecrets"]]);
   var ae4 = new Map([["NA", "NewAge"]]);
   var waves = [ae1, ae2]; //, ae3];
-
   var expansions = document.getElementById("expansions")
 
   waves.forEach(function(waveMap) {
     waveMap.forEach(function(imageName, value, map) {
-      var label = document.createElement("label");
       var input = createInput("checkbox", value, "expansions");
       var img = createImage(imageName, "30%");
-
-      label.appendChild(input);
-      label.appendChild(img);
-      expansions.appendChild(label);
+      createItem(expansions, input, img);
     });
 
     var br = document.createElement("br");
@@ -316,14 +318,10 @@ createRandomizers = function() {
   list[0] = "balanced";
 
   list.forEach(function(name, i) {
-    var label = document.createElement("label");
     var input = createInput("radio", name.toString(), "setup", i == 0);
     var img = createImage(name, "180px");
     img.onclick = function() { buttonPress(i) };
-
-    label.appendChild(input);
-    label.appendChild(img);
-    market.appendChild(label);
+    createItem(market, input, img);
   });
 };
 
