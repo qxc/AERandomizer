@@ -1,47 +1,47 @@
 body {
-	background: #426176 url("https://cdn.shopify.com/s/files/1/0384/0265/files/pnpPlaymat.jpg?10468641435889087898") repeat top; /* #f3f0e9; */
-	font-family: Cochin, 'Arial Black', Verdana, Arial, Helvetica, sans-serif;
-	font-size: 30px;
-	color: #fee86e;
-	image-rendering: -webkit-optimize-contrast;
+  background: #426176 url("images/pnpPlaymat.jpg") repeat top; /* #f3f0e9; */
+  font-family: Cochin, 'Arial Black', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #fee86e;
+  image-rendering: -webkit-optimize-contrast;
 
 }
 
 #title{
-	width:100%;
-	max-width:1100px;
-	margin:auto;
+  width:100%;
+  max-width:1100px;
+  margin:auto;
 }
 
 #expansions{
-	width:100%;
-	max-width:800px;
-	max-height:auto;
-  	width:500px;
+  width:100%;
+  max-width:800px;
+  max-height:auto;
+    width:500px;
 }
 #marketSetup{
-	width:100%;
-	max-width:1000px;
-	max-height:auto;
+  width:100%;
+  max-width:1000px;
+  max-height:auto;
 }
 
 #makeMarket{
-	width:100%;
-	max-width:550px;
+  width:100%;
+  max-width:550px;
 }
 
 #mages {
-	width:90%;
-	max-width:1400px;
-	max-height:auto;
-	margin:left;
+  width:90%;
+  max-width:1400px;
+  max-height:auto;
+  margin:left;
 }
 
 #market{
-	width:90%;
-	max-width:1000px;
-	max-height:auto;
-	margin:left;
+  width:90%;
+  max-width:1000px;
+  max-height:auto;
+  margin:left;
 }
 
 .mage-container {
@@ -50,10 +50,10 @@ body {
 }
 
 .mage-container img {
-	width:13vw;
+  width:13vw;
 }
 
-#instructTitle {
+.instructTitle {
   margin: 5px;
 }
 
@@ -63,7 +63,7 @@ body {
   font-size: 23px;
 }
 header {
-	text-align: center;
+  text-align: center;
 
 }
 
@@ -74,7 +74,7 @@ img.figure {
 }
 
 table, td, th {
-	border: 1px solid black;
+  border: 1px solid black;
 }
 
 td {
