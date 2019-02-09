@@ -41,16 +41,6 @@ cardsSpell = [new Card("PhoenixFlame", 'Spell', 3, 'AE'),new Card("SpectralEcho"
 cardsRelic = [new Card("FlexingDagger", 'Relic', 2, 'AE'),new Card("BottledVortex", 'Relic', 3, 'AE'),new Card("UnstablePrism", 'Relic', 3, 'AE'),new Card("BlastingStaff", 'Relic', 4, 'AE'),new Card("FocusingOrb", 'Relic', 4, 'AE'),new Card("Transmogrifier", 'Relic', 4, 'Depths'),new Card("VimDynamo", 'Relic', 4, 'Depths'),new Card("MagesTalisman", 'Relic', 5, 'AE'),new Card("MoltenHammer", 'Relic', 5, 'Nameless'),new Card("TemporalHelix", 'Relic', 7, 'Nameless'),new Card('CairnCompass','Relic',4,'WE'),new Card('ConclaveScroll','Relic',3,'WE'),new Card('FiendCatcher','Relic',3,'WE'),new Card('MagesTotem','Relic',2,'WE'),new Card('PrimordialFetish','Relic',4,'WE'),new Card('VortexGauntlet','Relic',6,'WE'),new Card('AstralCube','Relic',5,'OD'),new Card('RiddleSphere','Relic',3,'OD'),new Card('DimensionalKey','Relic',8,'TV'),new Card('EternityCharm','Relic',3,'TV'),new Card("AdrenalBatteries", 'Relic', 7, 'Legacy'),new Card("BottledStar", 'Relic', 7, 'BS'),new Card("BraneKnife", 'Relic', 3, 'Legacy'),new Card("EtherealHand", 'Relic', 6, 'Legacy'),new Card("Geophage", 'Relic', 3, 'Legacy'),new Card("InfernalMirror", 'Relic', 5, 'Legacy'),new Card("LivingGauntlet", 'Relic', 4, 'BS'),new Card("ManifoldContainer", 'Relic', 4, 'BS'),new Card("NeuralWreath", 'Relic', 4, 'Legacy'),new Card("PropheticLens", 'Relic', 4, 'Legacy'),new Card("RealityStabilizer", 'Relic', 6, 'Legacy'),new Card("ScholarsOpus", 'Relic', 3, 'BS'),new Card("SoulCords", 'Relic', 5, 'BS'),new Card("VoidMill", 'Relic', 5, 'Legacy'),new Card("VoltaicRelay", 'Relic', 4, 'Legacy')];
 bosses = [new Boss("RageBorne", 'AE'), new Boss("CarapaceQueen", 'AE'), new Boss("CrookedMask", 'AE'),new Boss("PrinceOfGluttons", 'AE'), new Boss("HordeCrone", 'Depths'), new Boss("BlightLord", 'Nameless'), new Boss("WaywardOne", 'Nameless'),new Boss('HollowCrown','WE'),new Boss('UmbraTitan','WE'),new Boss('GateWitch','WE'),new Boss('MagusOfCloaks','WE'),new Boss('KnightOfShackles','TV'),new Boss('MaidenOfThorns','TV'),new Boss('Wraithmonger','OD'),new Boss('ThriceDeadProphet','OD'),new Boss('Bladius', 'Legacy'),new Boss('Spawning Horror', 'Legacy'),new Boss('Fungal Mesh', 'Legacy'),new Boss('Deathmind', 'Legacy'),new Boss('Maelstrom: Risen', 'Legacy'),new Boss('Xaxos: Ascended', 'Legacy')];
 
-inExp = function(card){
-  inExpo = 0;
-  for(j = 0; j < exps.length; j++){
-    if(card.expansion == exps[j]){
-      inExpo = 1;
-    };
-  };
-  return inExpo;
-};
-
 randomSetup = function(gems, relics, spells) {
   return _.sample(gems, 3).concat(_.sample(relics, 2)).concat(_.sample(spells, 4));
 };
@@ -236,62 +226,109 @@ hasBaseGame = function(exps){
 }
 
 inExp = function(card){
-  exps.contains(card.expansion)
+  return exps.contains(card.expansion)
 };
 
-function buttonPress(j) {
-  //document.getElementById('image4').scrollIntoView();
-  var checkExp = document.forms[0];
-  exps = [];
+buttonPress = function(j) {
+  exps = Array.from(document.querySelectorAll('input[name="expansions"]'))
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value);
 
-  for (i = 0; i < checkExp.length; i++) {
-      if (checkExp[i].checked) {
-          exps.push(checkExp[i].value);
-      };
-  };
   if(!exps.some(hasBaseGame)){
     alert("Select Aeon's End, War Eternal or both in addition to other expansions.");
       return;
   }
-  var fGems = cardsGem.filter(inExp);
-  var fRelics = cardsRelic.filter(inExp);
-  var fSpells = cardsSpell.filter(inExp);
-  var numMages = 4;
-  var fMages = mages.filter(inExp);
-  var checkSetup = document.forms[1];
-  var txt = "";
+
+  boundInExp = inExp.bind(this, exps);
+  var fGems = cardsGem.filter(boundInExp);
+  var fRelics = cardsRelic.filter(boundInExp);
+  var fSpells = cardsSpell.filter(boundInExp);
+  var fMages = mages.filter(boundInExp);
   var cards = genMarket(fGems, fRelics, fSpells, j);
-  var chosenMages = _.sample(fMages,4)
+  var chosenMages = _.sample(fMages,4);
 
-  for (i = 0; i < cards.length; i++) {
-    var imageName = "image"+ i.toString();
-    var cardName = cards[i] + ".jpg";
+  cards.forEach(function(card, i) {
+    var imageName = "image" + i.toString();
+    var cardName = card + ".jpg";
     var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + cardName + "?1619266020467081722$$REVISION$$";
-    document.getElementById(imageName).src= temp;
-    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
-  };
+    document.getElementById(imageName).src = temp;
+  });
 
-  for (i = 0; i < numMages; i++) {
-    var imageName = "mage"+ i.toString();
-    var mageName = chosenMages[i] + ".jpg";
+  mages.forEach(function(mage, i) {
+    var imageName = "mage" + i.toString();
+    var mageName = mage + ".jpg";
     var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
-    document.getElementById(imageName).src= temp;
-    var mageText = "#" + imageName+"Cont p";
-    document.querySelector(mageText).innerHTML = chosenMages[i];
-    //document.getElementById(imageName).width="300"; // example of how you can alter width of an image
+    document.getElementById(imageName).src = temp;
+    var mageText = "#" + imageName + "Cont p";
+    document.querySelector(mageText).innerHTML = mage;
   };
 
   var imageName = "boss0";
-  var fBosses = bosses.filter(inExp);
+  var fBosses = bosses.filter(boundInExp);
   var chosenBoss = _.sample(fBosses) + ".jpg";
   var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
   document.getElementById(imageName).src= temp;
-  //document.getElementById("market").innerHTML = "You ordered a market with: " + txt;
-  //document.getElementById("expo").innerHTML = "You want to use expansions: " + exps+fGems;
+};
+
+createInput = function(type, value, name, checked = false) {
+  var input = document.createElement("input");
+  input.type = type;
+  input.name = name;
+  input.value = value;
+  input.checked = checked;
+
+  return input;
+};
+
+createImage = function(imageName, width) {
+  var img = document.createElement("img");
+  img.src = "images/" + imageName + ".jpg";
+  img.style.width = width;
+
+  return img;
+};
+
+createExpBoxes = function() {
+  var ae1 = new Map([["AE", "AeonsEnd"], ["Depths", "TheDepths"], ["Nameless", "TheNameless"]]);
+  var ae2 = new Map([["WE", "WarEternal"], ["TV", "TheVoid"], ["OD", "TheOuterDark"]]);
+  var ae3 = new Map([["Legacy", "Legacy"], ["BS", "BuriedSecrets"]]);
+  var waves = [ae1, ae2]; //, ae3];
+  var expansions = document.getElementById("expansions")
+
+  waves.forEach(function(waveMap) {
+    waveMap.forEach(function(imageName, value, map) {
+      var label = document.createElement("label");
+      var input = createInput("checkbox", value, "expansions");
+      var img = createImage(imageName, "30%");
+
+      label.appendChild(input);
+      label.appendChild(img);
+      expansions.appendChild(label);
+    });
+
+    var br = document.createElement("br");
+    expansions.appendChild(br);
+  });
+};
+
+createRandomizers = function() {
+  var market = document.getElementById("marketSetup")
+  var list = [...Array(7).keys()].map(number => "market" + number);
+  list[0] = "balanced";
+
+  list.forEach(function(name, i) {
+    var label = document.createElement("label");
+    var input = createInput("radio", name.toString(), "setup", i == 0);
+    var img = createImage(name, "180px");
+    img.onclick = function() { buttonPress(i) };
+
+    label.appendChild(input);
+    label.appendChild(img);
+    market.appendChild(label);
+  });
 };
 
 window.onload = function() {
-  //isMobile(); //Checks if the user is on a mobile device. Can pass this to buttonPress to have it set the image width differently
-  //buttonPress();
-
+  createExpBoxes();
+  createRandomizers();
 };

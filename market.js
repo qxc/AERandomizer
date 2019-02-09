@@ -246,9 +246,7 @@ buttonPress = function(j) {
   var cards = genMarket(fGems, fRelics, fSpells, j);
   var chosenMages = _.sample(fMages,4);
 
-  console.log("Almost cards");
   cards.forEach(function(card, i) {
-    console.log(card, i);
     var imageName = "image" + i.toString();
     var cardName = card + ".jpg";
     var temp = "images/" + card;
@@ -262,7 +260,7 @@ buttonPress = function(j) {
     document.getElementById(imageName).src = temp;
 
     var mageText = "#" + imageName+"Cont p";
-    document.querySelector(mageText).innerHTML = mage
+    document.querySelector(mageText).innerHTML = mage;
   });
 
   var imageName = "boss0";
