@@ -218,12 +218,12 @@ genMarket = function(gems, relics, spells, i){
   return cards;
 };
 
-hasBaseGame = function(exps){
+hasBaseGame = function(exp) {
   return ["AE", "WE", "Legacy"].includes(exp)
 }
 
-inExp = function(card){
-  return exps.contains(card.expansion)
+inExp = function(exps, card) {
+  return exps.includes(card.expansion)
 };
 
 buttonPress = function(j) {
@@ -251,20 +251,20 @@ buttonPress = function(j) {
     document.getElementById(imageName).src = temp;
   });
 
-  mages.forEach(function(mage, i) {
+  chosenMages.forEach(function(mage, i) {
     var imageName = "mage" + i.toString();
     var mageName = mage + ".jpg";
     var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
     document.getElementById(imageName).src = temp;
     var mageText = "#" + imageName + "Cont p";
     document.querySelector(mageText).innerHTML = mage;
-  };
+  });
 
   var imageName = "boss0";
   var fBosses = bosses.filter(boundInExp);
   var chosenBoss = _.sample(fBosses) + ".jpg";
   var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
-  document.getElementById(imageName).src= temp;
+  document.getElementById(imageName).src = temp;
 };
 
 createItem = function(parent, input, img) {

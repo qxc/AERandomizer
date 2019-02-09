@@ -257,7 +257,7 @@ buttonPress = function(j) {
     var temp = "mages/" + mageName;
     document.getElementById(imageName).src = temp;
 
-    var mageText = "#" + imageName+"Cont p";
+    var mageText = "#" + imageName + "Cont p";
     document.querySelector(mageText).innerHTML = mage;
   });
 
