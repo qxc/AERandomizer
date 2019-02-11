@@ -286,7 +286,7 @@ createInput = function(type, value, name, checked = false) {
 
 createImage = function(imageName, width) {
   var img = document.createElement("img");
-  img.src = "images/" + imageName + ".jpg";
+  img.src = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + imageName + ".jpg?3340884405781722183?$$REVISION$$";
   img.style.width = width;
 
   return img;
