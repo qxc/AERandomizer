@@ -297,7 +297,7 @@ createExpBoxes = function() {
   var ae2 = new Map([["WE", "WarEternal"], ["TV", "TheVoid"], ["OD", "TheOuterDark"]]);
   var ae3 = new Map([["Legacy", "Legacy"], ["BS", "BuriedSecrets"]]);
   var ae4 = new Map([["NA", "NewAge"]]);
-  var waves = [ae1, ae2]; //, ae3];
+  var waves = [ae1, ae2, ae3];
   var expansions = document.getElementById("expansions")
 
   waves.forEach(function(waveMap) {
