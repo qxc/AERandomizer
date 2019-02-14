@@ -247,14 +247,14 @@ buttonPress = function(j) {
   cards.forEach(function(card, i) {
     var imageName = "image" + i.toString();
     var cardName = card + ".jpg";
-    var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + cardName + "?1619266020467081722$$REVISION$$";
+    var temp = {{ cardName | file_path }};
     document.getElementById(imageName).src = temp;
   });
 
   chosenMages.forEach(function(mage, i) {
     var imageName = "mage" + i.toString();
     var mageName = mage + ".jpg";
-    var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + mageName + "?1619266020467081722$$REVISION$$";
+    var temp = {{ mageName | file_path }};
     document.getElementById(imageName).src = temp;
     var mageText = "#" + imageName + "Cont p";
     document.querySelector(mageText).innerHTML = mage;
@@ -263,7 +263,7 @@ buttonPress = function(j) {
   var imageName = "boss0";
   var fBosses = bosses.filter(boundInExp);
   var chosenBoss = _.sample(fBosses) + ".jpg";
-  var temp = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + chosenBoss + "?14241145229160548124$$REVISION$$"
+  var temp = {{ chosenBoss | file_path }};
   document.getElementById(imageName).src = temp;
 };
 
@@ -286,7 +286,7 @@ createInput = function(type, value, name, checked = false) {
 
 createImage = function(imageName, width) {
   var img = document.createElement("img");
-  img.src = "https://cdn.shopify.com/s/files/1/0384/0265/files/" + imageName + ".jpg?3340884405781722183?$$REVISION$$";
+  img.src = {{ imageName + ".jpg" | file_path }};
   img.style.width = width;
 
   return img;
