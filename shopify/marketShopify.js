@@ -247,14 +247,14 @@ buttonPress = function(j) {
   cards.forEach(function(card, i) {
     var imageName = "image" + i.toString();
     var cardName = card + ".jpg";
-    var temp = {{ cardName | file_path }};
+    var temp = shopifyUrl(cardName);
     document.getElementById(imageName).src = temp;
   });
 
   chosenMages.forEach(function(mage, i) {
     var imageName = "mage" + i.toString();
     var mageName = mage + ".jpg";
-    var temp = {{ mageName | file_path }};
+    var temp = shopifyUrl(mageName);
     document.getElementById(imageName).src = temp;
     var mageText = "#" + imageName + "Cont p";
     document.querySelector(mageText).innerHTML = mage;
@@ -263,7 +263,7 @@ buttonPress = function(j) {
   var imageName = "boss0";
   var fBosses = bosses.filter(boundInExp);
   var chosenBoss = _.sample(fBosses) + ".jpg";
-  var temp = {{ chosenBoss | file_path }};
+  var temp = shopifyUrl(chosenBoss);
   document.getElementById(imageName).src = temp;
 };
 
@@ -284,12 +284,18 @@ createInput = function(type, value, name, checked = false) {
   return input;
 };
 
-createImage = function(imageName, width) {
+createImage = function(image, width) {
   var img = document.createElement("img");
-  img.src = {{ imageName + ".jpg" | file_path }};
+  var imageName = image + ".jpg";
+  img.src = shopifyUrl(imageName);
   img.style.width = width;
 
   return img;
+};
+
+shopifyUrl = function(asset) {
+var url = document.getElementById("titleImg").src.split("?");
+  return url[0].replace("title2.png", asset) + "?" + url[1];
 };
 
 createExpBoxes = function() {
