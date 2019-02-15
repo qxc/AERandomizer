@@ -294,8 +294,10 @@ createImage = function(image, width) {
 };
 
 shopifyUrl = function(asset) {
-var url = document.getElementById("titleImg").src.split("?");
-  return url[0].replace("title2.png", asset) + "?" + url[1];
+  // This is a really hacky way to get the URL from Shopify since we cannot use Liquid filters
+  // in this file. If we made this a .js.liquid file, it would have to be part of the Theme and
+  // would have issues using the functions from Underscore
+  return document.getElementById("titleImg").src.replace('title2.png', asset);
 };
 
 createExpBoxes = function() {
